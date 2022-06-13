@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-12T18:48:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] 기본 개념 - 스마트 컨트랙트</title><link href="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 스마트 컨트랙트" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/07/blockchain-02</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html"><![CDATA[<h2 id="스마트-컨트랙트란">스마트 컨트랙트란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-13T13:37:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] 기본 개념 - 유동성 풀이란?(미완성)</title><link href="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 유동성 풀이란?(미완성)" /><published>2022-06-13T00:00:00+09:00</published><updated>2022-06-13T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/13/blockchain-03</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html"><![CDATA[<h2 id="유동성-풀이란">유동성 풀이란?</h2>
+
+<p>유동성 풀이란 스마트 콘트랙트 내에 통결되어 있는 자금(디지털 자산)들을 말한다. 유동성 풀은 탈중앙화된 트레이딩, 대출 등 앞으로 다양한 기능을 지원하기 위해 사용된다.</p>
+
+<p>유동성 풀 <code class="language-plaintext highlighter-rouge">유니스왑</code>과 같은 많은 탈중화 거래소(DEX)의 핵심이다. 유동성 제공자(LP)라 하는 이들은 풀에 동일한 가치를 갖는 두 가지 토큰을 추가하고 시장을 생성한다. 자신의 자금을 제공하는 대가로, 사용자는 자신의 풀에서 발생하는 거래 수수료를 전체 유동성 내 자신의 지분에 따라 분배받는다.</p>
+
+<p>LP는 유동성 공급에 필요한 토큰을 보유한 자라면 누구나 될 수 있으며 AMM(자동화된 마켓 메이킹)을 통해 유동성 풀의 변화에 따라 토큰의 교환비율이 결정된다. 이더리움 상에서 유동성 풀을 사용하는 대표적인 거래소는 스시스왑, 커브 등이 있으며 이 거래소 내 유동성 풀은 ERC-20 토큰을 지원한다.</p>
+
+<p><br /></p>
+
+<h2 id="유동성-풀은-어디에-사용되는가">유동성 풀은 어디에 사용되는가?</h2>
+
+<p>유동성 풀에 유동성을 공급하는 것은 간단하며 누구나 참여할 수 있기 때문에 다양한 방법으로 활용할 수 있다. 우선 유동성 풀은 토큰이 알고리즘에 따라 유동성 풀에 제공하는 사용자에게 분배할 수 있다는 원리를 이용해 사용자가 풀에 자금을 추가하고 이자를 받을 수 있는 이자 창출 플랫폼으로 사용할 수 있다. 이를 <code class="language-plaintext highlighter-rouge">유동성 마이닝(liquidity Mining)</code> 또는 <code class="language-plaintext highlighter-rouge">이자 농사(yield Farming)</code>라고 말하기도 한다.</p>
+
+<p>그리고 유동성 공급자에게 제한된 <code class="language-plaintext highlighter-rouge">리스크</code>와 <code class="language-plaintext highlighter-rouge">수익</code>을 선택할 수 있게 함으로써 스마트 컨트랙트의 리스크를 보완할 수 있는 기반을 제공한다. 또한, 블록체인 상에서 합성 자산을 만드는 것도 가능하게 할 수 있는 기반으로 활용할 수 있다.</p>
+
+<p>암호화폐 프로젝트에서 적합한 사람들에게 새 토큰을 배포하는 것은 무척 어려운 문제이다. <code class="language-plaintext highlighter-rouge">유동성 마이닝</code>은 보다 성공적인 접근 방법 중 하나 였다. 토큰은 기본적으로 알고리즘을 따라 자신의 토큰을 유동성 풀에 제공하는 사용자에게 분배된다. 이후 새롭게 생성된 토큰이 각 사용자의 풀 지분에 따라 분배된다.</p>
+
+<p>이는 <code class="language-plaintext highlighter-rouge">풀 토큰</code>이라 하는 다른 유동성 풀의 토큰일 수도 있다는 점을 유의해야 한다. 예를 들어, 유니스왑에 유동성을 제공하거나, 컴파운드에 자검을 대출해주는 경우, 풀 내 지분을 나타내는 토큰을 받게 된다. 이를 다른 풀에 예치하고, 수익을 얻을 수도 있다. 여러 프로토콜이 다른 프로토콜의 풀 토큰을 자신의 상품 등에 통합하기 때문에 이러한 연결은 꽤나 복잡해질 수 있다.</p>
+
+<p><br /></p>
+
+<h2 id="유동성-풀은-어떻게-작동하는가">유동성 풀은 어떻게 작동하는가?</h2>
+<p><code class="language-plaintext highlighter-rouge">유니스왑</code>을 예로 들어보자.</p>
+
+<h3 id="유니스왑이란">유니스왑이란?</h3>
+<p>유니스왑은 이더리움과 <code class="language-plaintext highlighter-rouge">ERC-20</code> 토큰 간의 자동 교환 거래를 용이하게 하도록 설계된 탈중앙화 거래소(DEX)이다. 온-체인에서 탈중심화 지갑만 설치하면 유니스왑을 이용할 수 있다. 유니스왑에 대해 알아보기 전 먼저 탈중앙화 거래소에 대해 알아야 할 필요가 있다.</p>
+
+<p>우리가 흔히 알고 있는 <code class="language-plaintext highlighter-rouge">업비트</code>, <code class="language-plaintext highlighter-rouge">빗썸</code>, <code class="language-plaintext highlighter-rouge">코인원</code>, <code class="language-plaintext highlighter-rouge">코인빗</code> 등은 중앙화된 주체가 거래를 중개하는 거래소이다. 이런 중앙집권 거래소는 사용자의 디지털자산을 거래소가 수탁하고 사용자는 거래소가 제공하는 장부 위에서 거래를 하는 구조로 이루어져 있다. 하지만 중앙화된 주체가 거래의 신뢰를 보장하는 구조는 <code class="language-plaintext highlighter-rouge">거래과정에서 제3자가 개입할 필요 없다</code>는 무허가성(permissionless)이라는 블록체인의 특성에 반하는 것이기에 블록체인 커뮤니티에서는 중앙화되어 있지 않는 형태, 일명 탈중앙화 거래소를 만들기 위해 노력했다. 그 결과 2017년경 이더델타 등 탈중앙화 거래소(DEX, Decentralized Exchanage) 프로젝트가 탄생했다. 탈중앙화 거래소는 <code class="language-plaintext highlighter-rouge">비영리 목적</code>이기 때문에 수수료가 거의 없고 별도의 인증 절차 없이 토큰 간 거래를 할 수 있다.</p>
+
+<p>초기 탈중앙화 거래소는 과도한 가스비를 초래하고, 확장의 한계성, 부족한 유동성 등의 문제가 있어 큰 관심을 받지 못했다. <code class="language-plaintext highlighter-rouge">유니스왑</code>은 이러한 한계성을 보완하여 출시하였는데 특히 AMM(유동화된 마켓 메이커) 알고리즘 기반으로 <code class="language-plaintext highlighter-rouge">유동성 풀</code>(pool, 스마트 컨트랙트 내에 동결되어 있는 자금)을 제공하여 낮은 유동성이라는 한계점을 보완하였다.</p>
+
+<p>유니스왑은 유동성을 공급하는 자들에게 별도의 보상을 지급하는 방식으로 유동성 공급 문제를 해결했다. 유니스왑은 유동성 마이닝이라는 시스템으로 성립되어 있어 토큰을 특정 풀에 맡기면 전용 거버넌스 토큰인 UNI를 보상으로 받을 수 있다. UNI는 일종의 거버넌스 토큰(Governance Token)으로서 가격이 결정되어 있으며 디지털자산 거래소에서 간편하게 교환할 수 있다. 또한, 유니스왑은 중앙관리자가 없어 디지털자산의 상장 이라는 개념이 존재하지 않는다. 이에 누구나 유니스왑에 ERC-20 토큰의 유동성을 공급하여 해당 토큰의 교환을 용이하게 만들 수 있다.</p>
+
+<h3 id="유니스왑에-투자하는-방법">유니스왑에 투자하는 방법</h3>
+
+<p><br /></p>
+
+<p><img src="/assets/images/banners/pool.jpg" alt="" /></p>
+
+<p>풀 안에 A, B 두 코인이 있고 공급자는 반드시 A코인 50%와 B코인 50%를 예치해야 한다. 이 예치금은 거래소가 사용한다.
+본질적으로 유동성 공급자는 거래 수수료를 얻고자 암호화폐 토큰을 탈중화 거래소(DEX)에 예치하는 트레이더다. 이것은 유동성 채굴 혹은 시장 조성이라고 불리기도 한다.</p>
+
+<p>거래 수수료는 보통 이자율로 표시된다. 이자율은 얼마나 유동성이 공급되는지 그리고 얼마나 많은 거래가 유동성 풀 안에서 발생하는지에 따라 천차만별이다.</p>
+
+<h3 id="참조">참조</h3>
+<p>업비트 : https://m.upbitcare.com/academy/education/blockchain/49
+바이낸스 : https://academy.binance.com/ko/articles/what-are-liquidity-pools-in-defi</p>]]></content><author><name>GitHub User</name></author><category term="BlockChain" /><category term="BlockChain" /><summary type="html"><![CDATA[유동성 풀이란?]]></summary></entry><entry><title type="html">[블록체인] 기본 개념 - 스마트 컨트랙트</title><link href="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 스마트 컨트랙트" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/07/blockchain-02</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html"><![CDATA[<h2 id="스마트-컨트랙트란">스마트 컨트랙트란?</h2>
 
 <p><code class="language-plaintext highlighter-rouge">스마트 컨트랙트(smart contract)</code>란 블록체인 기술을 활용해 제3의 인증기관 없이 개인 간 계약이 이루어질 수 있도록 하는 기술을 말한다. 서면으로 이루어지던 계약을 코드로 구현하고 해당 계약을 이행하는 과정에서 조건 충족 여부에 대한 판단을 인간이 아닌 컴퓨터 등의 기계가 대신 실행함으로써 제3의 인증기관이 필요 없도록 하는 개념을 의미한다.</p>
 
@@ -1803,194 +1850,4 @@ const LifeCycle = () =&gt; {
 
 <p>중요한건, View에서 어떤식으로 라이프 사이클이 돌아가는지 이해하는 것이 중요하다. 가령, 마운트가 무엇이고 그의 생명주기와 관련된 hooks들과 사용방법을 이해하는 것이 중요한 것 같다.</p>
 
-<p>앞으로 더 많은 내용들을 공부해야 해야겠지만 리액트는 정말 매력있는 라이브러리같다.</p>]]></content><author><name>GitHub User</name></author><category term="React" /><category term="React" /><category term="Gatsby" /><category term="Next.js" /><category term="Node.js" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[라이프 사이클 메서드란?]]></summary></entry><entry><title type="html">[React] JSX(JavaScript XML)란?</title><link href="http://localhost:4000/react/2022/04/19/react-01.html" rel="alternate" type="text/html" title="[React] JSX(JavaScript XML)란?" /><published>2022-04-19T00:00:00+09:00</published><updated>2022-04-19T00:00:00+09:00</updated><id>http://localhost:4000/react/2022/04/19/react-01</id><content type="html" xml:base="http://localhost:4000/react/2022/04/19/react-01.html"><![CDATA[<h2 id="jsx란">JSX란?</h2>
-
-<hr />
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1&gt;;</span><span class="err"> 
-</span></code></pre></div></div>
-
-<p>위의 코드는 문자열도, HTML도 아니다.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">JSX</code>라고 하며 javascirpt를 확장한 문법이다. JSX라고 하면 템플릿 언어가 떠오를 수 있지만, Javascirpt의 모든 기능이 포함되어 있다.</li>
-  <li><code class="language-plaintext highlighter-rouge">JSK</code>는 리액트에서 UI가 어떻게 생겼는지를 정의하고, 사용하는 문법이다.</li>
-  <li>브라우저에서 실행하기 전에 babel 이 JSX문법을 JavaScript로 변환한다.</li>
-</ul>
-
-<p>밑의 JSX 문법을 바벨로 변환해보자.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span> 
-  <span class="k">return</span> <span class="p">(</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">siksik</span> <span class="nx">blog</span><span class="o">!&lt;</span><span class="sr">/h1&gt; </span><span class="se">)</span><span class="sr">;</span><span class="err"> 
-</span><span class="p">}</span>
-</code></pre></div></div>
-
-<p>이렇듯 바벨을 JSX 문법을 자바스크립트 문법으로 변환-&gt;출력 해준다.</p>
-
-<p><img src="https://user-images.githubusercontent.com/52439201/164239872-4d475ec1-2e81-4132-bf04-7163724cb55a.png" alt="image" /></p>
-
-<p>리액트에서 JSX는 HTML을 작성하듯 사용하기 때문에 가독성과 유연성이 높고 자바스크립트와 동시에 사용할 수 있어 편리하다.</p>
-
-<p><br /></p>
-
-<h2 id="jsx-문법">JSX 문법</h2>
-
-<hr />
-
-<h3 id="최상위-부모-요소-하나로-존재해야-한다">최상위 부모 요소 하나로 존재해야 한다.</h3>
-<p>Virtual DOM에서 컴포넌트 변화를 감지할 때 효율적으로 비교할 수 있도록 컴포넌트 내부는 하나의 DOM 트리 구조로 이루어져야 한다는 규칙이 있기 때문이다.</p>
-
-<ul>
-  <li>밑에는 같은 레벨의 <code class="language-plaintext highlighter-rouge">div</code> 요소가 2개 존재하므로 에러를 발생시킨다.
-    <pre><code class="language-JS">// Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment &lt;&gt;...&lt;/&gt;? (7:6)
-const App = () =&gt; {
-return (
-    &lt;div&gt;안녕하세요?&lt;/div&gt;
-    &lt;div&gt;반갑습니다.&lt;/div&gt;
-)
-}
-</code></pre>
-  </li>
-  <li>따라서 아래와 같이 작성해야 한다.
-    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">반갑습니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<h3 id="jsx-표현식-포함">JSX 표현식 포함</h3>
-<p>JSX의 중괄호안에는 유효한 모든 <code class="language-plaintext highlighter-rouge">JavaScript</code> 표현식을 넣을 수 있다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">서성식</span><span class="dl">'</span><span class="p">;</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="nx">입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="jsx도-표현식이다">JSX도 표현식이다.</h3>
-<p>JSX를 <code class="language-plaintext highlighter-rouge">if</code>구문이나 <code class="language-plaintext highlighter-rouge">for</code> loop 안에 넣어 사용하고, 변수에 할당하고, 인자로서 받고, 함수로부터 반환할 수 있다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// if구문안에 사용</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="nx">입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>        <span class="p">)</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?.</span> <span class="nx">서성식입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err">)
-</span><span class="p">}</span>
-</code></pre></div></div>
-
-<p>반대로, <code class="language-plaintext highlighter-rouge">if</code>구문이나 <code class="language-plaintext highlighter-rouge">for</code> loop는 JavaScript 표현식이 아니기 때문에 JSX 내부 자바스크립트 표현식에서는 사용할 수 없다.
-따라서, 조건에 따라 JSX 주변 코드에서 <code class="language-plaintext highlighter-rouge">if</code>구문을 사용하거나, 중괄호안에 삼항 연산자(조건부 연산자)를 넣어 사용한다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">man</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="nx">입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">{</span><span class="nx">man</span><span class="o">===</span><span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span> <span class="p">?</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">남자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">여자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)}</span>
-            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="p">)}</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?.</span> <span class="nx">서성식입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err">)
-</span><span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="react-dom은-html-어트리뷰트-이름-대신-camelcase-명명-규칙을-사용-한다">React DOM은 HTML 어트리뷰트 이름 대신 camelCase 명명 규칙을 사용 한다.</h3>
-<ul>
-  <li>JSX에서 자바스크립트를 사용하려면 중괄호를 사용하는 것처럼, CSS을 적용하려면 객체 형태로 넣어야 한다.</li>
-  <li>camelCase 표기법으로 작성해야한다.(background-color =&gt; backgroundColor)</li>
-</ul>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">man</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">css</span> <span class="o">=</span> <span class="p">{</span> <span class="na">backgroundColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">,</span> <span class="na">fontSize</span><span class="p">:</span> <span class="dl">'</span><span class="s1">20px</span><span class="dl">'</span> <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">css</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">css</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="nx">입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">{</span><span class="nx">man</span><span class="o">===</span><span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span> <span class="p">?</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">남자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">여자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)}</span>
-            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="p">)}</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?.</span> <span class="nx">서성식입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err">)
-</span><span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="class-대신-classname">class 대신 className</h3>
-<ul>
-  <li>JSX에서는 class대신 className으로 사용해야 한다.</li>
-</ul>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">man</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">css</span> <span class="o">=</span> <span class="p">{</span> <span class="na">backgroundColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">,</span> <span class="na">fontSize</span><span class="p">:</span> <span class="dl">'</span><span class="s1">20px</span><span class="dl">'</span> <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">css</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">testClass</span><span class="dl">'</span> <span class="o">&gt;</span><span class="nx">저는</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="nx">입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">{</span><span class="nx">man</span><span class="o">===</span><span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span> <span class="p">?</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">남자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">여자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)}</span>
-            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="p">)}</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?.</span> <span class="nx">서성식입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err">)
-</span><span class="p">}</span>
-</code></pre></div></div>
-
-<p><img src="https://user-images.githubusercontent.com/52439201/164252264-1332b9b7-0f3a-4ff1-8c0e-cc58489928cb.png" alt="image" /></p>
-
-<h3 id="jsx에서-주석-사용">JSX에서 주석 사용</h3>
-<ul>
-  <li>JSX 내에서 주석을 사용하려면 {/<em>…</em>/}와 같이 사용해야 한다.</li>
-</ul>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">man</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">css</span> <span class="o">=</span> <span class="p">{</span> <span class="na">backgroundColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">,</span> <span class="na">fontSize</span><span class="p">:</span> <span class="dl">'</span><span class="s1">20px</span><span class="dl">'</span> <span class="p">}</span>
-    <span class="kd">const</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">potentiallyMaliciousInput</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                <span class="p">{</span><span class="cm">/* 주석입니다. */</span><span class="p">}</span>
-                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">css</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?</span> <span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">testClass</span><span class="dl">'</span> <span class="o">&gt;</span><span class="nx">저는</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="nx">입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">{</span><span class="nx">man</span><span class="o">===</span><span class="dl">'</span><span class="s1">Y</span><span class="dl">'</span> <span class="p">?</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">남자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
-                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">저는</span> <span class="nx">여자입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>                <span class="p">)}</span>
-            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="p">)}</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">안녕하세요</span><span class="p">?.</span> <span class="nx">서성식입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err">)
-</span><span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>GitHub User</name></author><category term="React" /><category term="React" /><category term="Gatsby" /><category term="Next.js" /><category term="Node.js" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[JSX란?]]></summary></entry></feed>
+<p>앞으로 더 많은 내용들을 공부해야 해야겠지만 리액트는 정말 매력있는 라이브러리같다.</p>]]></content><author><name>GitHub User</name></author><category term="React" /><category term="React" /><category term="Gatsby" /><category term="Next.js" /><category term="Node.js" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[라이프 사이클 메서드란?]]></summary></entry></feed>
