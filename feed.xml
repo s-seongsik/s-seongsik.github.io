@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-13T13:37:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] 기본 개념 - 유동성 풀이란?(미완성)</title><link href="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 유동성 풀이란?(미완성)" /><published>2022-06-13T00:00:00+09:00</published><updated>2022-06-13T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/13/blockchain-03</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html"><![CDATA[<h2 id="유동성-풀이란">유동성 풀이란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T23:02:09+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] 기본 개념 - 유동성 풀이란?</title><link href="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 유동성 풀이란?" /><published>2022-06-13T00:00:00+09:00</published><updated>2022-06-13T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/13/blockchain-03</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html"><![CDATA[<h2 id="유동성-풀이란">유동성 풀이란?</h2>
 
 <p>유동성 풀이란 스마트 콘트랙트 내에 통결되어 있는 자금(디지털 자산)들을 말한다. 유동성 풀은 탈중앙화된 트레이딩, 대출 등 앞으로 다양한 기능을 지원하기 위해 사용된다.</p>
 
@@ -21,7 +21,7 @@
 <p><br /></p>
 
 <h2 id="유동성-풀은-어떻게-작동하는가">유동성 풀은 어떻게 작동하는가?</h2>
-<p><code class="language-plaintext highlighter-rouge">유니스왑</code>을 예로 들어보자.</p>
+<p>먼저, 가장 유명한 <code class="language-plaintext highlighter-rouge">유니스왑</code>을 예로 들어보자.</p>
 
 <h3 id="유니스왑이란">유니스왑이란?</h3>
 <p>유니스왑은 이더리움과 <code class="language-plaintext highlighter-rouge">ERC-20</code> 토큰 간의 자동 교환 거래를 용이하게 하도록 설계된 탈중앙화 거래소(DEX)이다. 온-체인에서 탈중심화 지갑만 설치하면 유니스왑을 이용할 수 있다. 유니스왑에 대해 알아보기 전 먼저 탈중앙화 거래소에 대해 알아야 할 필요가 있다.</p>
@@ -33,8 +33,74 @@
 <p>유니스왑은 유동성을 공급하는 자들에게 별도의 보상을 지급하는 방식으로 유동성 공급 문제를 해결했다. 유니스왑은 유동성 마이닝이라는 시스템으로 성립되어 있어 토큰을 특정 풀에 맡기면 전용 거버넌스 토큰인 UNI를 보상으로 받을 수 있다. UNI는 일종의 거버넌스 토큰(Governance Token)으로서 가격이 결정되어 있으며 디지털자산 거래소에서 간편하게 교환할 수 있다. 또한, 유니스왑은 중앙관리자가 없어 디지털자산의 상장 이라는 개념이 존재하지 않는다. 이에 누구나 유니스왑에 ERC-20 토큰의 유동성을 공급하여 해당 토큰의 교환을 용이하게 만들 수 있다.</p>
 
 <h3 id="유니스왑에-투자하는-방법">유니스왑에 투자하는 방법</h3>
+<p>1) 디지털자산 지갑을 먼저 생성합니다. 이후 메타마스크 등의 지갑에 유니스왑을 연결한다.
+2) 유니스왑은 이더리움 기반 디지털자산에만 적용되기 때문에 이더(ETH)를 구매한다.
+3) 지갑이 설정되면 https://uniswap.org 으로 이동하여 ‘Launch App’을 클릭한다. 인터페이스를 통해 유니스왑을 지갑에 연결할 수 있습니다.
+4) 지갑에 있는 이더(ETH)를 원하는 ERC-20 토큰과 교환합니다. ERC-20을 교환하면 유동성 풀로 이더를 보내는 것과 동시에 교환한 ERC-20 토큰을 풀에서 인출하게 됩니다.
+5) 토큰 교환 전에 슬리피지 수치를 주의해야 합니다. 슬리피지는 유동성 풀에서 사용 가능한 양 대비 토큰의 비율입니다. 풀 크기에 비해 대량 주문이 있는 거래는 높은 %의 슬리피지로 거래를 중단됩니다. 
+6) 모든 세부 정보를 확인한 후 스왑을 확인하면 지갑에 팝업이 표시되며 트랜잭션은 https://etherscan.io/ 에서 확인할 수 있습니다. 트랜잭션이 검증되어 블록체인에 기록되는 과정에서 일부 시간이 소요될 수 있습니다.</p>
+
+<h3 id="유니스왑-투자-리스크">유니스왑 투자 리스크</h3>
+<p>유니스왑은 제3자의 개입 없이 지갑에서 직접 거래할 수 있고 새 토큰을 쉽고 빠르게 접근할 수 있다. 또한, 거래수수료가 0.3%으로 중앙집권 거래소(업비트, 빗썸, 코인원 등) 대비 저렴하다. 하지만 유니스왑에도 다양한 리스크가 존재한다.</p>
+
+<p>첫 번째는, 유니스왑에서 해킹이 발생할 확률이 <code class="language-plaintext highlighter-rouge">제로(0)</code>가 아니라는 것이다. 해킹 리스크가 빈번하게 일어나는 것은 아니지만, 스마트 컨트랙트가 문제를 일으키면 해킹당할 위험이 높아진다. 실제로 2022년 4월 유니스왑 대출 플랫폼 Lendf.ME에서 해킹으로 2500만 달러 이상의 디지털자산이 도난당한 사건이 발생했다. 스마트 컨트랙트는 완전하지 않으므로 설계의 취약점이 발견될 경우 의도치 않는 공격을 받을 수 있다. 이로 인해 디지털자산이 탈취당하는 경우에는 별도의 보호를 받을 수 없게 된다.</p>
+
+<p>또한, 거버넌스 토큰 UNI의의 가격 변동성 리스크도 존재한다. 유동성이 큰 UNI는 일반 통화보다 토큰 페어 가격 변동 위험이 높다. 따라서 토큰 페어(pair)의 가격 변동이 높을 경우 소위 비영구적인 손실이 발생할 수도 있따. 또한 표시된 APY(연간 이자율)는 매번 변경되므로 일정 이자율을 유지한다는 보장 또한 없다.</p>
+
+<h3 id="유니스왑-작동원리">유니스왑 작동원리</h3>
+<p><code class="language-plaintext highlighter-rouge">이더리움</code>과 <code class="language-plaintext highlighter-rouge">ERC-20</code> 토큰 간의 자동 교환 거래를 용이하게 하도록 설계된 탈중화 <code class="language-plaintext highlighter-rouge">거래소(DEX)</code>인 유니스왑에서는 디지털자산 간의 <code class="language-plaintext highlighter-rouge">교환(swap)</code> 기능을 구현하기 위하여 중앙화권 거래소가 사용하는 오더북 방식이 아닌 <code class="language-plaintext highlighter-rouge">AMM</code> 방식을 선택했다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">AMM(Automated Market Making)</code>이란 자동화된 마켓 메이킹으로, 개인들이 토큰을 교환할 때 수학공식에 의해 자산의 가격이 자동으로 결정되도록 하는 알고리즘입니다. 중앙화된 거래소에서는 매수희망자와 매도희망자가 존재하여 각자 제출한 호가가 일치하였을 때 거래가 성립되고, 거래소는 해당 거래를 중개하는 역할을 수행합니다. 반면, AMM 방식의 DEX에서는 이용자들이 <code class="language-plaintext highlighter-rouge">유동성 풀(Liquidity Pool)</code>이라는 것을 공급하고, 디지털자산의 교환을 원하는 자는 해당 풀에서 가상자산을 교환하는 방식으로 교환이 이루어집니다. 거래의 상대방이 명확히 존재하지 않으며 이때 교환비율이나 디지털자산의 가치는 수학적인 알고리즘에 의하여 형성됩니다.</p>
+
+<p>유니스왑은 AMM의 한 종류인 CPMM(Constant Product Market Maker)을 사용한다.</p>
+
+<blockquote>
+  <p>K = X*Y</p>
+  <blockquote>
+    <p>K= 상수</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>X= 거래계약 안에 있는 토큰 X의 수량</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>Y= 거래계약 안에 있는 토큰 Y의 수량</p>
+  </blockquote>
+</blockquote>
+
+<p>이 함수는 변수 X와 Y의 곱에 있어서 상수 K 값이 <code class="language-plaintext highlighter-rouge">유지</code>되어야 한다. 이는 전체 유동성이 일정하다는 의미로 해석할 수 있따. X와 Y 값은 각각 유동성 풀에 존재하는 토큰 가치의 비중을 나타내며 두 비중의 곱에 의해 풀의 유동성이 결정되고 이를 K 값으로 나타낸다.</p>
+
+<p>예시로 유니스왑의 거래를 설명해보자면,</p>
+
+<p>유동성 풀에 다음과 같이 토큰이 존재한다고 가정하자.</p>
+<ol>
+  <li>이더리움(X) 10개</li>
+  <li>ERC-20(Y) 토큰 200개</li>
+  <li>이 둘의 곱은 2000(K)</li>
+  <li>1 ETH = 18.18 ERC-20</li>
+</ol>
+
+<p>이에 모든 교환에 있어 두 디지털자산의 곱은 2000을 유지해야 한다. 이러한 상황에서 ERC-20 토큰을 구매하기 위해 1 ETH를 보내면 컨트랙트의 이더리움 수량이 10개에서 1개가 더 추가되어 11개로 변한다. K는 2000으로 일정해야 하므로 <code class="language-plaintext highlighter-rouge">181.82(2000/11)</code>로 변한다. 다시 말해 1 ETH를 주고받는 ERC-20 토큰의 양은 <code class="language-plaintext highlighter-rouge">18.18(200-181.82)</code>인 것이다.</p>
+
+<ol>
+  <li>이더리움(X) 10개 + 1개 = 11개</li>
+  <li>ERC-20(Y) 토큰 2000/11 = 181.82개</li>
+  <li>이 둘의 곱은 2000(K)</li>
+  <li>1 ETH = 33.33 ERC-20</li>
+</ol>
+
+<p>이다음 상황에서 누군가 1 ETH를 넣는다면 컨트랙트 상의 이더리움은 12개가 된다. ERC-20 토큰의 양은 <code class="language-plaintext highlighter-rouge">166.67(2000/12)</code>개가 된다. 즉 하나의 ETH를 더 넣으면 1 ETH를 주고받는 ERC-20 토큰의 양은 <code class="language-plaintext highlighter-rouge">33.33(200-166.67)</code>이다. 이는 ERC-20 토큰의 구매 가격(가치)이 높아진 것으로 볼 수 있다.</p>
+
+<p>이때 ERC-20을 비싸게 팔고 이더리움을 저렴하게 매수하려는 차익거래자가 발생됩니다. 이러한 차익거래자 때문에 이더리움/ERC-20 비율이 효율적인 선까지 맞춰집니다. 즉, 유니스왑은 <code class="language-plaintext highlighter-rouge">CPMM(X*Y=K)</code>을 통해 ETH와 ERC-20 토큰의 비율을 중앙집권 거래소 가격과 수렴할 수 있게 한 것입니다.</p>
 
 <p><br /></p>
+
+<p>유동성 풀을 작동원리를 정리하자면</p>
 
 <p><img src="/assets/images/banners/pool.jpg" alt="" /></p>
 
@@ -43,9 +109,13 @@
 
 <p>거래 수수료는 보통 이자율로 표시된다. 이자율은 얼마나 유동성이 공급되는지 그리고 얼마나 많은 거래가 유동성 풀 안에서 발생하는지에 따라 천차만별이다.</p>
 
-<h3 id="참조">참조</h3>
-<p>업비트 : https://m.upbitcare.com/academy/education/blockchain/49
-바이낸스 : https://academy.binance.com/ko/articles/what-are-liquidity-pools-in-defi</p>]]></content><author><name>GitHub User</name></author><category term="BlockChain" /><category term="BlockChain" /><summary type="html"><![CDATA[유동성 풀이란?]]></summary></entry><entry><title type="html">[블록체인] 기본 개념 - 스마트 컨트랙트</title><link href="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 스마트 컨트랙트" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/07/blockchain-02</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html"><![CDATA[<h2 id="스마트-컨트랙트란">스마트 컨트랙트란?</h2>
+<p><br /></p>
+
+<h2 id="참조">참조</h2>
+<ul>
+  <li><a href="https://m.upbitcare.com/academy/education/blockchain/49">업비트</a></li>
+  <li><a href="https://academy.binance.com/ko/articles/what-are-liquidity-pools-in-defi">바이낸스</a></li>
+</ul>]]></content><author><name>GitHub User</name></author><category term="BlockChain" /><category term="BlockChain" /><summary type="html"><![CDATA[유동성 풀이란?]]></summary></entry><entry><title type="html">[블록체인] 기본 개념 - 스마트 컨트랙트</title><link href="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 스마트 컨트랙트" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/07/blockchain-02</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/07/blockchain-02.html"><![CDATA[<h2 id="스마트-컨트랙트란">스마트 컨트랙트란?</h2>
 
 <p><code class="language-plaintext highlighter-rouge">스마트 컨트랙트(smart contract)</code>란 블록체인 기술을 활용해 제3의 인증기관 없이 개인 간 계약이 이루어질 수 있도록 하는 기술을 말한다. 서면으로 이루어지던 계약을 코드로 구현하고 해당 계약을 이행하는 과정에서 조건 충족 여부에 대한 판단을 인간이 아닌 컴퓨터 등의 기계가 대신 실행함으로써 제3의 인증기관이 필요 없도록 하는 개념을 의미한다.</p>
 
