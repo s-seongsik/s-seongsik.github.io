@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T23:02:09+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] 기본 개념 - 유동성 풀이란?</title><link href="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 유동성 풀이란?" /><published>2022-06-13T00:00:00+09:00</published><updated>2022-06-13T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/13/blockchain-03</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html"><![CDATA[<h2 id="유동성-풀이란">유동성 풀이란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-19T23:02:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] dApp - Xumm의 컨셉과 Api 사용방법(미완)</title><link href="http://localhost:4000/blockchain/2022/06/19/blockchain-04.html" rel="alternate" type="text/html" title="[블록체인] dApp - Xumm의 컨셉과 Api 사용방법(미완)" /><published>2022-06-19T00:00:00+09:00</published><updated>2022-06-19T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/19/blockchain-04</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/19/blockchain-04.html"><![CDATA[<h2 id="xumm-컨셉">Xumm 컨셉</h2>
+
+<p>리플이 제공하는 <code class="language-plaintext highlighter-rouge">XRPL Labs</code>는 사용자가 2019 년 7 월 지갑 계정에 암호 화폐 및 화폐 통화 [예 : 유로 및 미국 달러]로 저장할 수있는 <code class="language-plaintext highlighter-rouge">Xumm</code>을 출시했다. XRPL Labs의 수석 개발자 Wietse Wind에 따르면이 배포의 주요 목표는 기존 금융 기관의 개입없이 은행 애플리케이션과 유사한 애플리케이션을 구축하는 것이다.</p>
+
+<p>간단하게 말하면, 리플의 <code class="language-plaintext highlighter-rouge">XRP 원장</code> 계정을 생성하고 기존 계정을 가져올 수 있도록 도와주는 지갑이다.</p>
+
+<blockquote>
+  <p>Xumm 용어</p>
+  <ul>
+    <li>xumm:
+xumm은 iOS 또는 Android 기기 전용 xumm 앱 을 의미한다.</li>
+    <li>xumm platform: 
+xumm 플랫폼을 언급할 때 개발자가 xumm 앱을 통해 최종 사용자에게 서명 요청을 전달하기 위한 API를 의미한다다.</li>
+    <li>xumm API: 
+xumm API는 xumm 플랫폼 과 관련된 xumm API를 의미합니다 .</li>
+    <li>application: 
+애플리케이션을 언급할 때 xumm앱 이 아니라 개발자 소유의 애플리케이션을 의미합니다.</li>
+  </ul>
+</blockquote>
+
+<p><br /></p>
+
+<p>XRP 거래는 일반적으로 사용자가 시작한다. 지갑을 열고 대상이나 금액 등을 입력한 다음 거래를 제출한다. 소매/전자 상거래(및 기타 많은) 시나리오에서 이 프로세스를 “reversing”하면 결제 흐름이 실수를 덜 범하고 훨씬 더 사용자 친화적이 된다.
+여기서 Xumm 플랫폼이 등장한다. XRPL 트랜잭션 템플릿은 <code class="language-plaintext highlighter-rouge">Xumm API</code>에 게시될 수 있다. 서명 오청(=<code class="language-plaintext highlighter-rouge">payload</code>)은 저장되므로 xumm 앱 사용자는 서명 요청을 열고(QR, 딥링크 또는 푸시알람을 스캔하여) 자신의 장치에서 해결할 수 있다(거부/서명).</p>
+
+<p>사용자가 서명 요청에 서명하면 애플리케이션을 신뢰할 수 있다. 이 경우 애플리케이션에 대한 애플리케이션별 사용자 토큰이 생성되고 향후 <code class="language-plaintext highlighter-rouge">payload</code>는 푸시알람과 함께 최종 사용자에게 직접 전달된다.</p>
+
+<p>xumm 플랫폼은 XRP 원장에서 서명된 트랜잭션을 확인하는 데 필요한 모든 정보와 함께 다양한 상태 업데이트 옵션을 제공하므로 xumm 앱의 트랜잭션 콜백 정보 또는 트랜잭션 제출에 의존할 필요가 없다.</p>
+
+<p><br /></p>
+
+<h2 id="앱-등록">앱 등록</h2>
+
+<p>개발자가 Xumm Api를 호출하기 위해서는 Api key를 얻어 등록해야만 한다. <a href="https://apps.xumm.dev/">xumm 개발자 대시보드</a>에 방문하여 등록하여 로그인한다.</p>
+
+<p><img src="/assets/images/banners/xumm_app_register.png" alt="" /></p>
+
+<p>xumm API 에 대한 모든 호출 에는 최소한 다음 세 개의 HTTP 헤더가 포함되어야 한다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Header(key)</th>
+      <th style="text-align: left">value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Content-Type</td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">X-API-Key</td>
+      <td style="text-align: left">[xumm 개발자 대시보드](https://xumm.readme.io/docs/register-your-app)에서 가져옴</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">X-API-Secret</td>
+      <td style="text-align: left">[xumm 개발자 대시보드](https://xumm.readme.io/docs/register-your-app)에서 가져옴</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>자, 앱등록이 완료되면 모든 준비는 완료되었다. xumm api를 직접 호출하여 사용할 수 있다.</p>
+
+<p><br /></p>
+
+<h2 id="서명요청payload">서명요청(Payload)</h2>
+
+<p>일반적으로 페이로드 워크플로는 애플리케이션에서 시작된다<code class="language-plaintext highlighter-rouge">(사용자가 무언가를 서명하기를 원한다)</code>. 사용자가 애플리케이션에 지불하는 행위, 에스크로 설정, 다중 서명 설정, 신뢰 라인 생성 등과 같은 다른 유형의 XRPL 트랜잭션일 수도 있다.</p>
+
+<h3 id="페이로드payload-vs-서명요청sign-request-vs-트랙잭션-템플릿transaction-template">페이로드(payload) vs. 서명요청(sign request) vs. 트랙잭션 템플릿(transaction template)</h3>
+<p>최종 사용자가 트랜잭션(서명 요청)에 서명하도록 하려면 트랙잭션 템플릿(XRPL 트랜잭션 사양에 따라 형식이 지정된 JSON 형식)을 작성하고 트랜잭션 템플릿을 xumm 플랫폼(api)에 게시하여 페이로드를 생성해야한다. 그리고 xumm 앱 사용자가 거부 또는 서명하게 된다.</p>
+
+<p>개발자의 애플리케이션은 XRPL 트랜잭션 템플릿을 만든다. 일반적인 <code class="language-plaintext highlighter-rouge">XRPL JSON 트랜잭션</code>과 <code class="language-plaintext highlighter-rouge">xumm 트랜잭션 템플릿</code>의 차이점은 최종 사용자 기기의 xumm 앱이 자동으로 채우기 때문에 일부 필드를 생략하거나 공백으로 둘 수 있다는 점이다.
+그리고, 개발자의 애플리케이션 백엔드는 트랜잭션 템플릿을 Xumm API로 보낸다. 그럼 개발자의 애플리케이션은 유니크한 페이로드 아이디<code class="language-plaintext highlighter-rouge">(payload ID)</code>를 전달받는다.</p>
+
+<p><br /></p>
+
+<h3 id="testnetdevnetmainnet에-대한-참고-사항">Testnet/Devnet/Mainnet에 대한 참고 사항</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Testnet/Devnet</code>과 상호 작용하려면 <code class="language-plaintext highlighter-rouge">Testnet/Devnet</code>에 연결된 <code class="language-plaintext highlighter-rouge">xumm</code> 앱으로 요청에 서명하기만 하면 된다. <code class="language-plaintext highlighter-rouge">XUMM 플랫폼</code>은 단순히 최종 사용자와 외부 응용 프로그램 간의 <code class="language-plaintext highlighter-rouge">"상호작용 채널"</code>이기 때문에 사용된 네트워크는 API와 관련이 없다. 서명이 선행될 때 사용자가 연결되는 네트워크이다.</p>
+
+<h2 id="참조">참조</h2>
+
+<ul>
+  <li>https://xumm.readme.io/docs/payload-workflow</li>
+</ul>]]></content><author><name>GitHub User</name></author><category term="BlockChain" /><category term="BlockChain" /><summary type="html"><![CDATA[Xumm 컨셉]]></summary></entry><entry><title type="html">[블록체인] 기본 개념 - 유동성 풀이란?</title><link href="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html" rel="alternate" type="text/html" title="[블록체인] 기본 개념 - 유동성 풀이란?" /><published>2022-06-13T00:00:00+09:00</published><updated>2022-06-13T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/13/blockchain-03</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/13/blockchain-03.html"><![CDATA[<h2 id="유동성-풀이란">유동성 풀이란?</h2>
 
 <p>유동성 풀이란 스마트 콘트랙트 내에 통결되어 있는 자금(디지털 자산)들을 말한다. 유동성 풀은 탈중앙화된 트레이딩, 대출 등 앞으로 다양한 기능을 지원하기 위해 사용된다.</p>
 
@@ -1662,262 +1748,4 @@ Created a new tsconfig.json with:
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><img src="https://user-images.githubusercontent.com/52439201/165471358-e7542353-0385-4c81-8c96-7feaded9e085.png" alt="image" /></p>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[시작으로]]></summary></entry><entry><title type="html">[React] 라이프 사이클 메서드란?</title><link href="http://localhost:4000/react/2022/04/21/react-02.html" rel="alternate" type="text/html" title="[React] 라이프 사이클 메서드란?" /><published>2022-04-21T00:00:00+09:00</published><updated>2022-04-21T00:00:00+09:00</updated><id>http://localhost:4000/react/2022/04/21/react-02</id><content type="html" xml:base="http://localhost:4000/react/2022/04/21/react-02.html"><![CDATA[<h2 id="라이프-사이클-메서드란">라이프 사이클 메서드란?</h2>
-
-<p><code class="language-plaintext highlighter-rouge">LifeCycle Method</code>란 한국말로 “생명주기”라고 한다. React, Vue, angular와 같은 프레임워크들은 MVC패턴에서 View에 해당하는 영역이다. 그렇기 때문에 각 컴포넌트들은 라이프 사이클이 존재한다.</p>
-
-<p>라이프 사이클은 컴포넌트가 브라우저에 생성되고, 업데이트되고, 제거될 때 호출되는 메서드이다. 또한 클래스형 컴포넌트에서만 사용 할 수 있다.</p>
-
-<p>만약, 함수형으로 컴포넌트를 구현한다면 <code class="language-plaintext highlighter-rouge">useEffect</code>를 사용하여 라이프사이클을 구현해야한다.
-일단, 라이프 사이클의 유형과 어떻게 사용하는지를 익히는 것에 집중해보자.</p>
-
-<p>그리고, 아래의 이미지는 리액트 라이프 사이클을 나타낸 <a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">이미지</a>이다.</p>
-
-<p><img src="https://user-images.githubusercontent.com/52439201/164472072-39bf1eab-65b0-4bc0-ae09-d2c2e8881477.png" alt="image" /></p>
-
-<p><br /></p>
-
-<h2 id="라이프-사이클-메서드-유형">라이프 사이클 메서드 유형</h2>
-
-<p>라이프 사이클은 크게 3가지 유형으로 나눌 수 있다.</p>
-
-<ol>
-  <li>컴포넌트가 브라우저에 생성될 때 =&gt; <code class="language-plaintext highlighter-rouge">Mount</code>
-    <ul>
-      <li>마운트는 DOM이 생성되고 웹 브라우저 상에 나타는 것을 말한다.</li>
-    </ul>
-  </li>
-  <li>컴포넌트가 업데이트 될 때 =&gt; <code class="language-plaintext highlighter-rouge">Update</code>
-    <ul>
-      <li>Props가 바뀔 때</li>
-      <li>State가 바뀔 때</li>
-      <li>부모 컴포넌트가 리렌더링 될 때</li>
-      <li>this.forceUpdate로 강제로 렌더링을 할 때이다.</li>
-    </ul>
-  </li>
-  <li>컴포넌트가 제거 될 때 =&gt; <code class="language-plaintext highlighter-rouge">Unmount</code>
-    <ul>
-      <li>Unmount는 DOM에서 제거되는 것을 말한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="마운트">마운트</h3>
-
-<p>마운트될 때 발생하는 생명주기를 알아보자.</p>
-
-<ul>
-  <li>constructor</li>
-  <li>getDerivedStateFromProps</li>
-  <li>render</li>
-  <li>componentDidMount</li>
-</ul>
-
-<h4 id="constructor">constructor</h4>
-
-<p><code class="language-plaintext highlighter-rouge">constructor(생성자)</code>는 컴포넌트가 처음 생성될 때 실행되는 메서드이다. 이 메서드는 초기 state를 정의할 수 있다.</p>
-
-<p>클래스형 컴포넌트에서는 초기 state를 사용할 때 <code class="language-plaintext highlighter-rouge">constructor</code>를 사용해야 한다. 
-훅에서는 useState hook을 사용하여 초기 state를 설정할 수 있다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Class</span>
-<span class="kd">class</span> <span class="nx">LifeCycle</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span>  <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">count</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">//Hooks</span>
-<span class="nx">Const</span> <span class="nx">LifeCycle</span> <span class="o">=</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-	<span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="getderivedstatefromprops">getDerivedStateFromProps</h4>
-<p>getDerivedStateFromProps는 props로 받아온 것을 state에 동기화 시키고 싶을 때 사용한다.
-컴포넌트가 마운트 될 때와 업데이트 될 때 호출된다. 자주 사용하진 않지만 가끔 사용하기 때문에 알아두면 좋을 것 같다.</p>
-
-<p>아래는 class에서의 사용법과 hooks에서의 사용법을 간단하게 작성한 예제이다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Class</span>
-<span class="kd">class</span> <span class="nx">Example</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-  <span class="kd">static</span> <span class="nx">getDerivedStateFromProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">,</span> <span class="nx">prevState</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">nextProps</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="nx">prevState</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">value</span> <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="kc">null</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">//Hooks</span>
-<span class="kd">function</span> <span class="nx">ScrollView</span><span class="p">({</span><span class="nx">row</span><span class="p">})</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">isScrollingDown</span><span class="p">,</span> <span class="nx">setIsScrollingDown</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-  <span class="kd">const</span> <span class="p">[</span><span class="nx">prevRow</span><span class="p">,</span> <span class="nx">setPrevRow</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">row</span> <span class="o">!==</span> <span class="nx">prevRow</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 마지막 렌더링 이후 행이 변경되었습니다. isScrollingDown을 업데이트합니다.</span>
-    <span class="nx">setIsScrollingDown</span><span class="p">(</span><span class="nx">prevRow</span> <span class="o">!==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">row</span> <span class="o">&gt;</span> <span class="nx">prevRow</span><span class="p">);</span>
-    <span class="nx">setPrevRow</span><span class="p">(</span><span class="nx">row</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="s2">`Scrolling down: </span><span class="p">${</span><span class="nx">isScrollingDown</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="render">render</h4>
-<p>컴포넌트를 렌더링하는 메서드이다. 가장 기초적인 메서드이면서 가장 중요한 메서드이다. 
-함수형 컴포넌트에서는 render 메서드를 사용하지 않고 컴포넌트를 렌더링할 수 있다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Class</span>
-<span class="kd">class</span> <span class="nx">LifeCycle</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span>  <span class="p">{</span>
-  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">컴포넌트입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">//Hooks</span>
-<span class="nx">Const</span> <span class="nx">LifeCycle</span> <span class="o">=</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">컴포넌트입니다</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span><span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="componentdidmount">componentDidMount</h4>
-
-<p>componentDidMount는 컴포넌트의 첫 번째 렌더링이 끝나고 호출되는 메서드이다. 이 메서드가 호출되는 시점에는 우리가 만든 컴포넌트가 화면에 나타난 상태이다.
-여기선 보통 DOM을 사용해야하는 외부 라이브러리를 연동하거나, 해당 컴포넌트에서 필요한 데이터를 요청하기 위해 Axios, fetch 등 비동기 처리를 요청하거나 DOM의 속성을 읽거나 직접 변경하는 작업을 할 때 사용한다. 함수형 hooks에서는 <code class="language-plaintext highlighter-rouge">useEffect</code>를 활용하여 구현할 수 있다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Class</span>
-<span class="kd">class</span> <span class="nx">LifeCycle</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Hooks</span>
-<span class="kd">const</span> <span class="nx">LifeCycle</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-     <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="p">...</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>useEffect의 사용방법은 <a href="https://ko.reactjs.org/docs/hooks-effect.html">Using the Effect Hook</a>를 참고하자.</p>
-
-<p><br /></p>
-
-<h3 id="업데이트">업데이트</h3>
-
-<p>이번엔 컴포넌트가 업데이트 될 때 발생하는 생명주기를 알아보자.</p>
-
-<ul>
-  <li>getDerivedStateFromProps</li>
-  <li>shouldComponentUpdate</li>
-  <li>getSnapshotBeforeUpdate</li>
-  <li>componentDidUpdate</li>
-</ul>
-
-<h4 id="getderivedstatefromprops-1">getDerivedStateFromProps</h4>
-<p>마운트에서 다룬 내용과 동일하다. 컴포넌트의 <code class="language-plaintext highlighter-rouge">props</code> 나 <code class="language-plaintext highlighter-rouge">state</code> 가 바뀌었을때도 이 메서드가 호출되므로 잘 알아두자!</p>
-
-<h4 id="shouldcomponentupdate">shouldComponentUpdate</h4>
-<p>shouldComponentUpdate는 props나 state를 변경했을 때 리렌더링을 할지 말지 결정하는 메서드이다. 이 메서드는 반드시 <code class="language-plaintext highlighter-rouge">false</code>나 <code class="language-plaintext highlighter-rouge">true</code>를 반환해야 한다.
-이 메서드는 오직 성능 최적화만을 위한 것이며 렌더링 목적을 방지하는 목적으로 사용하게되면 버그로 이어질 수 있다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Class</span>
-<span class="kd">class</span> <span class="nx">LifeCycle</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-  <span class="nx">shouldComponentUpdate</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">value</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Hooks</span>
-<span class="kd">const</span> <span class="nx">LifeCycle</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">memo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="p">...</span>
-  <span class="p">},</span>
-  <span class="p">(</span><span class="nx">prevProps</span><span class="p">,</span> <span class="nx">nextProps</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">prevProps</span><span class="p">.</span><span class="nx">value</span>
-  <span class="p">}</span>
-<span class="p">)</span>
-</code></pre></div></div>
-<p>Hooks에서도 props는 React.memo, state는 useMemo를 활용하면 렌더링 성능을 개선할 수 있다고 한다.</p>
-
-<h4 id="getsnapshotbeforeupdate">getSnapshotBeforeUpdate</h4>
-<p>getSnapshotBeforeUpdate는 가장 마지막으로 렌더링된 결과가 DOM 등에 반영되기 전에 호출된다. <a href="https://ko.reactjs.org/docs/react-component.html#getsnapshotbeforeupdate">공식문서</a>에서도 사용하는 예는 흔치 않다고 말한다. 보통 채팅 화면처럼 스크롤 위치를 따로 처리하는 작업이 필요한 UI 등을 생각해볼 수 있다고 한다.</p>
-
-<p>스냅샷 값을 반환하거나 null을 반환한다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">LifeCycle</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-  <span class="nx">getSnapshotBeforeUpdate</span><span class="p">(</span><span class="nx">prevProps</span><span class="p">,</span> <span class="nx">prevState</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">prevProps</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">listRef</span><span class="p">.</span><span class="nx">current</span>
-      <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">list</span><span class="p">.</span><span class="nx">scrollTop</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="kc">null</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>함수형에서는 아직 이 기능을 대체할만한 <code class="language-plaintext highlighter-rouge">hook</code>이 없다고 한다.</p>
-
-<h4 id="componentdidupdate">componentDidUpdate</h4>
-<p>componentDidUpdate는 <code class="language-plaintext highlighter-rouge">리렌더링</code>을 완료한 후 호출되는 메서드이다. 업데이트가 끝난 직후이므로, DOM관련 처리를 해도 무방하다.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Class</span>
-<span class="kd">class</span> <span class="nx">LifeCycle</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-    <span class="nx">componentDidUpdate</span><span class="p">(</span><span class="nx">prevProps</span><span class="p">,</span> <span class="nx">prevState</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Hooks</span>
-<span class="kd">const</span> <span class="nx">LifeCycle</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="언마운트">언마운트</h3>
-
-<p>이번엔 컴포넌트가 제거 될 때 발생하는 생명주기를 알아보자.</p>
-
-<ul>
-  <li>componentWillUnmount</li>
-</ul>
-
-<h4 id="componentwillunmount">componentWillUnmount</h4>
-<p>componentWillUnmount는 컴포넌트를 DOM에서 제거할 때 호출되는 메서드이다. 여기서는 주로 DOM에 직접 등록했던 이벤트를 제거한다. 
-함수형 컴포넌트에서는 <code class="language-plaintext highlighter-rouge">useEffect CleanUp</code> 함수를 통해 해당 메서드를 구현할 수 있다.</p>
-
-<pre><code class="language-JS">// Class
-class LifeCycle extends React.Component {
-    coomponentWillUnmount() {
-        ...
-    }
-}
-
-// Hooks
-const LifeCycle = () =&gt; {
-    useEffect(() =&gt; {
-      function handleStatusChange(status) {
-        setIsOnline(status.isOnline);
-      }
-      ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
-      // effect 이후에 어떻게 정리(clean-up)할 것인지 표시합니다.
-      return function cleanup() {
-        ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
-      };
-    });
-}
-</code></pre>
-
-<p><br /></p>
-
-<h2 id="마치며">마치며</h2>
-
-<p>리액트에서 클래스형 컴포넌트로 구현하게 되는 일은 앞으로 많지 않을 것이므로, 대략적인 내용만 숙지하면 될 것 같다.</p>
-
-<p>중요한건, View에서 어떤식으로 라이프 사이클이 돌아가는지 이해하는 것이 중요하다. 가령, 마운트가 무엇이고 그의 생명주기와 관련된 hooks들과 사용방법을 이해하는 것이 중요한 것 같다.</p>
-
-<p>앞으로 더 많은 내용들을 공부해야 해야겠지만 리액트는 정말 매력있는 라이브러리같다.</p>]]></content><author><name>GitHub User</name></author><category term="React" /><category term="React" /><category term="Gatsby" /><category term="Next.js" /><category term="Node.js" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[라이프 사이클 메서드란?]]></summary></entry></feed>
+<p><img src="https://user-images.githubusercontent.com/52439201/165471358-e7542353-0385-4c81-8c96-7feaded9e085.png" alt="image" /></p>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[시작으로]]></summary></entry></feed>
