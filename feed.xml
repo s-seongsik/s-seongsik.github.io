@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-19T23:02:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] dApp - Xumm의 컨셉과 Api 사용방법(미완)</title><link href="http://localhost:4000/blockchain/2022/06/19/blockchain-04.html" rel="alternate" type="text/html" title="[블록체인] dApp - Xumm의 컨셉과 Api 사용방법(미완)" /><published>2022-06-19T00:00:00+09:00</published><updated>2022-06-19T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/19/blockchain-04</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/19/blockchain-04.html"><![CDATA[<h2 id="xumm-컨셉">Xumm 컨셉</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-20T23:11:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[블록체인] dApp - Xumm 시작하기</title><link href="http://localhost:4000/blockchain/2022/06/19/blockchain-04.html" rel="alternate" type="text/html" title="[블록체인] dApp - Xumm 시작하기" /><published>2022-06-19T00:00:00+09:00</published><updated>2022-06-19T00:00:00+09:00</updated><id>http://localhost:4000/blockchain/2022/06/19/blockchain-04</id><content type="html" xml:base="http://localhost:4000/blockchain/2022/06/19/blockchain-04.html"><![CDATA[<h2 id="xumm-컨셉">Xumm 컨셉</h2>
 
 <p>리플이 제공하는 <code class="language-plaintext highlighter-rouge">XRPL Labs</code>는 사용자가 2019 년 7 월 지갑 계정에 암호 화폐 및 화폐 통화 [예 : 유로 및 미국 달러]로 저장할 수있는 <code class="language-plaintext highlighter-rouge">Xumm</code>을 출시했다. XRPL Labs의 수석 개발자 Wietse Wind에 따르면이 배포의 주요 목표는 기존 금융 기관의 개입없이 은행 애플리케이션과 유사한 애플리케이션을 구축하는 것이다.</p>
 
@@ -79,6 +79,24 @@ xumm API는 xumm 플랫폼 과 관련된 xumm API를 의미합니다 .</li>
 <h3 id="testnetdevnetmainnet에-대한-참고-사항">Testnet/Devnet/Mainnet에 대한 참고 사항</h3>
 
 <p><code class="language-plaintext highlighter-rouge">Testnet/Devnet</code>과 상호 작용하려면 <code class="language-plaintext highlighter-rouge">Testnet/Devnet</code>에 연결된 <code class="language-plaintext highlighter-rouge">xumm</code> 앱으로 요청에 서명하기만 하면 된다. <code class="language-plaintext highlighter-rouge">XUMM 플랫폼</code>은 단순히 최종 사용자와 외부 응용 프로그램 간의 <code class="language-plaintext highlighter-rouge">"상호작용 채널"</code>이기 때문에 사용된 네트워크는 API와 관련이 없다. 서명이 선행될 때 사용자가 연결되는 네트워크이다.</p>
+
+<h3 id="데스크탑-클라이언트">데스크탑 클라이언트</h3>
+<p>애플리케이션에서 QR 코드를 생성하거나 사전 생성된 QR 코드 중 하나를 사용할 수 있다. xumm 앱 최종 사용자는 QR 코드를 스캔하고 거래 템플릿을 검토하고 거래에 서명할 수 있다. 또한 최종 사용자를 페이로드 URL로 리디렉션할 수 있다.</p>
+
+<h3 id="디바이스-클라이언트">디바이스 클라이언트</h3>
+<p>디바이스에서 이 프로세스가 발생 하면 사용자를 페이로드 URL로 리디렉션할 때 xumm 앱이 자동으로 열린다.</p>
+
+<p>페이로드를 생성할 떄 애플리케이션이 게시한 페이로드 옵션에 따라서 xumm 앱은 서명된 트랜잭션을 XRPL에 직접 제출하거나 서명된 트랜잭션 HEX를 애플리케이션에 다시 게시한다.(그래서 애플리케이션은 서명된 트랜잭션을 제출하거나 유지할 수 있다.)</p>
+
+<p>최종 사용자가 페이로드를 거부 및 서명하여 해겷하면 애플리케이션 백엔드는 HTTP POST 웹훅을 수신한다. 또한, 페이로드별 웹 소켓을 구독하여 실시간 상태 업데이트를 받거나 xumm API를 호출하여 페이로드 상태를 얻을 수 있다.</p>
+
+<h3 id="xumm-서명요청-flowinitially-non-push">xumm 서명요청 flow(initially, non-push)</h3>
+
+<p><img src="/assets/images/banners/xumm-non-push.png" alt="" /></p>
+
+<h3 id="xumm-서명요청-flowwith-user-token-push">xumm 서명요청 flow(with User Token, push)</h3>
+
+<p><img src="/assets/images/banners/xumm-push.png" alt="" /></p>
 
 <h2 id="참조">참조</h2>
 
