@@ -12,8 +12,8 @@
 <meta property="og:title" content="[TypeScript] 변수와 함수 타입 정의(미완)">
 <meta name="author" content="GitHub User">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="기본 타입">
-<meta property="og:description" content="기본 타입">
+<meta name="description" content="자바스크립트에 타입 추가하는 방법">
+<meta property="og:description" content="자바스크립트에 타입 추가하는 방법">
 <link rel="canonical" href="http://localhost:4000/typescirpt/2022/07/05/typescript-03.html">
 <meta property="og:url" content="http://localhost:4000/typescirpt/2022/07/05/typescript-03.html">
 <meta property="og:site_name" content="IT 데이터베이스">
@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="[TypeScript] 변수와 함수 타입 정의(미완)">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-07-05T00:00:00+09:00","datePublished":"2022-07-05T00:00:00+09:00","description":"기본 타입","headline":"[TypeScript] 변수와 함수 타입 정의(미완)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/typescirpt/2022/07/05/typescript-03.html"},"url":"http://localhost:4000/typescirpt/2022/07/05/typescript-03.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-07-05T00:00:00+09:00","datePublished":"2022-07-05T00:00:00+09:00","description":"자바스크립트에 타입 추가하는 방법","headline":"[TypeScript] 변수와 함수 타입 정의(미완)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/typescirpt/2022/07/05/typescript-03.html"},"url":"http://localhost:4000/typescirpt/2022/07/05/typescript-03.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="shortcut icon" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -701,7 +701,7 @@ function googleTranslateElementInit() {
 
 
 
-    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
   </p>
 <div class="post-tags">
 <a class="post-tag" href="/tags.html#Typescirpt">#Typescirpt</a><a class="post-tag" href="/tags.html#Javascript">#Javascript</a><a class="post-tag" href="/tags.html#ES6">#ES6</a>
@@ -879,7 +879,69 @@ function googleTranslateElementInit() {
 
     <div class="post-content e-content" itemprop="articleBody">
 
-      <h2 id="기본-타입">기본 타입</h2>
+      <h2 id="자바스크립트에-타입-추가하는-방법">자바스크립트에 타입 추가하는 방법</h2>
+
+<p>밑의 자바스크립트에서 sum이라는 함수에 들어가는 파라미터 a,b에 타입을 지정해줄 수 있는 방법이 있다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">/** */</code> 주석처리 안에다 <code class="language-plaintext highlighter-rouge">@param {type} 파라미터명</code>을 적어주고 리턴되는 값도 <code class="language-plaintext highlighter-rouge">@returns {type}</code>으로 지정해 줄 수 있다.</li>
+  <li>타입스크립트처럼 에러를 에디터에서 확인하려면 <code class="language-plaintext highlighter-rouge">@ts-check</code>를 주석에 넣어주면 에러를 발생시켜준다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @ts-check</span>
+
+<span class="cm">/**
+ * 
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */</span>
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>리턴값은 number 타입을 줬기 때문에 string 형식을 지정할 수 없다는 에러가 발생되고, sum() 함수에도 number 타입의 파라미터만 입력받을 수 있으므로 에러를 발생시키게 된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/177474279-b39c40ba-6b84-4827-9840-708091d06101.png" alt="스크린샷 2022-07-06 오후 2 18 26"></p>
+
+<h2 id="기본-타입-정의">기본 타입 정의</h2>
+
+<h3 id="string">String</h3>
+
+<p>자바스크립트에서 변수 타입이 문자열이면 아래와 같이 <code class="language-plaintext highlighter-rouge">string</code> 타입을 선언해서 사용한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// error</span>
+</code></pre></div></div>
+
+<h3 id="number">number</h3>
+<p>자바스크립트에서 변수 타입이 숫자면 아래와 같이 <code class="language-plaintext highlighter-rouge">number</code> 타입을 선언해서 사용한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">number</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="nx">number</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="boolean">boolean</h3>
+<p>자바스크립트에서 변수 타입이 불린이면 아래와 같이 <code class="language-plaintext highlighter-rouge">boolean</code> 타입을 선언해서 사용한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">boolean</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+
+<span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">boolean</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// error</span>
+</code></pre></div></div>
 
 <h2 id="함수-타입">함수 타입</h2>
 
@@ -893,10 +955,10 @@ function googleTranslateElementInit() {
 <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/blockchain/2022/06/07/blockchain-02.html" title="">[블록체인] 기본 개념 - 스마트 컨트랙트</a></li>
-<li><a class="post-link" href="/typescirpt/2022/05/17/typescript-02.html" title="">[TypeScript] 인터페이스 이해하기</a></li>
-<li><a class="post-link" href="/nuxt.js/2022/01/24/nuxtJs-01.html" title="">[Nuxt.js] 공식문서로 빠르게 배우기 1탄 - 시작하기</a></li>
-<li><a class="post-link" href="/webpack/2021/12/15/Webpack-04.html" title="">[Webpack] loader (2)</a></li>
+        <li><a class="post-link" href="/python/2021/12/01/python-scheduler-windows.html" title="">[python] Windows 스케줄러 기능으로 파이썬 스크립트 작업 등록하기</a></li>
+<li><a class="post-link" href="/javascript/2022/04/11/javascript-10.html" title="">[Javascript] ES6 순회와 이터러블&amp;이터레이터</a></li>
+<li><a class="post-link" href="/node.js/2022/02/09/Node.js-03.html" title="">[Node.js] Express API 서버 구축 - 설치 및 실행</a></li>
+<li><a class="post-link" href="/nuxt.js/2022/02/01/nuxtJs-03.html" title="">[Nuxt.js] 공식문서로 빠르게 배우기 3탄 - Github에 정적 사이트 빌드 및 배포하기...</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>

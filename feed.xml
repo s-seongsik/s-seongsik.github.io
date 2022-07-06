@@ -1,6 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-05T14:51:44+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[TypeScript] 변수와 함수 타입 정의(미완)</title><link href="http://localhost:4000/typescirpt/2022/07/05/typescript-03.html" rel="alternate" type="text/html" title="[TypeScript] 변수와 함수 타입 정의(미완)" /><published>2022-07-05T00:00:00+09:00</published><updated>2022-07-05T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/05/typescript-03</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/05/typescript-03.html"><![CDATA[<h2 id="기본-타입">기본 타입</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-06T14:52:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[TypeScript] 변수와 함수 타입 정의(미완)</title><link href="http://localhost:4000/typescirpt/2022/07/05/typescript-03.html" rel="alternate" type="text/html" title="[TypeScript] 변수와 함수 타입 정의(미완)" /><published>2022-07-05T00:00:00+09:00</published><updated>2022-07-05T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/05/typescript-03</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/05/typescript-03.html"><![CDATA[<h2 id="자바스크립트에-타입-추가하는-방법">자바스크립트에 타입 추가하는 방법</h2>
 
-<h2 id="함수-타입">함수 타입</h2>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[기본 타입]]></summary></entry><entry><title type="html">[Electron] 01. 일렉트론이란?</title><link href="http://localhost:4000/electron/2022/06/28/electron.html" rel="alternate" type="text/html" title="[Electron] 01. 일렉트론이란?" /><published>2022-06-28T00:00:00+09:00</published><updated>2022-06-28T00:00:00+09:00</updated><id>http://localhost:4000/electron/2022/06/28/electron</id><content type="html" xml:base="http://localhost:4000/electron/2022/06/28/electron.html"><![CDATA[<h2 id="일렉트론electron이란">일렉트론(Electron)이란?</h2>
+<p>밑의 자바스크립트에서 sum이라는 함수에 들어가는 파라미터 a,b에 타입을 지정해줄 수 있는 방법이 있다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/** */</code> 주석처리 안에다 <code class="language-plaintext highlighter-rouge">@param {type} 파라미터명</code>을 적어주고 리턴되는 값도 <code class="language-plaintext highlighter-rouge">@returns {type}</code>으로 지정해 줄 수 있다.</li>
+  <li>타입스크립트처럼 에러를 에디터에서 확인하려면 <code class="language-plaintext highlighter-rouge">@ts-check</code>를 주석에 넣어주면 에러를 발생시켜준다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @ts-check</span>
+
+<span class="cm">/**
+ * 
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */</span>
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>리턴값은 number 타입을 줬기 때문에 string 형식을 지정할 수 없다는 에러가 발생되고, sum() 함수에도 number 타입의 파라미터만 입력받을 수 있으므로 에러를 발생시키게 된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/177474279-b39c40ba-6b84-4827-9840-708091d06101.png" alt="스크린샷 2022-07-06 오후 2 18 26" /></p>
+
+<h2 id="기본-타입-정의">기본 타입 정의</h2>
+
+<h3 id="string">String</h3>
+
+<p>자바스크립트에서 변수 타입이 문자열이면 아래와 같이 <code class="language-plaintext highlighter-rouge">string</code> 타입을 선언해서 사용한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// error</span>
+</code></pre></div></div>
+
+<h3 id="number">number</h3>
+<p>자바스크립트에서 변수 타입이 숫자면 아래와 같이 <code class="language-plaintext highlighter-rouge">number</code> 타입을 선언해서 사용한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">number</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="nx">number</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="boolean">boolean</h3>
+<p>자바스크립트에서 변수 타입이 불린이면 아래와 같이 <code class="language-plaintext highlighter-rouge">boolean</code> 타입을 선언해서 사용한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">boolean</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+
+<span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">boolean</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// error</span>
+</code></pre></div></div>
+
+<h2 id="함수-타입">함수 타입</h2>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[자바스크립트에 타입 추가하는 방법]]></summary></entry><entry><title type="html">[Electron] 01. 일렉트론이란?</title><link href="http://localhost:4000/electron/2022/06/28/electron.html" rel="alternate" type="text/html" title="[Electron] 01. 일렉트론이란?" /><published>2022-06-28T00:00:00+09:00</published><updated>2022-06-28T00:00:00+09:00</updated><id>http://localhost:4000/electron/2022/06/28/electron</id><content type="html" xml:base="http://localhost:4000/electron/2022/06/28/electron.html"><![CDATA[<h2 id="일렉트론electron이란">일렉트론(Electron)이란?</h2>
 
 <p>일렉트론은 Javascript, HTML, CSS 만으로도 데스크탑 앱을 만들 수 있는 프레임워크이다. 2013년 아톰 쉘(Atom Shell)이라 불리는 크로스 플랫폼 애플리케이션 쉘로 시작했으며 오픈소스화, 명칭 변경등을 거쳐 현재는 깃허브에서 개발하고 있다.</p>
 
