@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>[TypeScript] 타입스크립트의 추론, 호환, 별칭(미완) | IT 데이터베이스</title>
+<title>[TypeScript] 타입스크립트의 추론, 호환, 별칭 | IT 데이터베이스</title>
 <meta name="generator" content="Jekyll v4.2.2">
-<meta property="og:title" content="[TypeScript] 타입스크립트의 추론, 호환, 별칭(미완)">
+<meta property="og:title" content="[TypeScript] 타입스크립트의 추론, 호환, 별칭">
 <meta name="author" content="GitHub User">
 <meta property="og:locale" content="en_US">
 <meta name="description" content="타입 추론(Tpye Inference) 타입 추론이란, 타입스크립트가 코드를 해석해 나가는 동작을 의미한다.">
@@ -20,9 +20,9 @@
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2022-07-13T00:00:00+09:00">
 <meta name="twitter:card" content="summary">
-<meta property="twitter:title" content="[TypeScript] 타입스크립트의 추론, 호환, 별칭(미완)">
+<meta property="twitter:title" content="[TypeScript] 타입스크립트의 추론, 호환, 별칭">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-07-13T00:00:00+09:00","datePublished":"2022-07-13T00:00:00+09:00","description":"타입 추론(Tpye Inference) 타입 추론이란, 타입스크립트가 코드를 해석해 나가는 동작을 의미한다.","headline":"[TypeScript] 타입스크립트의 추론, 호환, 별칭(미완)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"},"url":"http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-07-13T00:00:00+09:00","datePublished":"2022-07-13T00:00:00+09:00","description":"타입 추론(Tpye Inference) 타입 추론이란, 타입스크립트가 코드를 해석해 나가는 동작을 의미한다.","headline":"[TypeScript] 타입스크립트의 추론, 호환, 별칭","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"},"url":"http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="shortcut icon" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -660,7 +660,7 @@ function googleTranslateElementInit() {
     <div class="wrapper">
       <div class="page-banner-inner">
 <header class="post-header">
-  <h1 class="post-title p-name" itemprop="name headline">[TypeScript] 타입스크립트의 추론, 호환, 별칭(미완)</h1>
+  <h1 class="post-title p-name" itemprop="name headline">[TypeScript] 타입스크립트의 추론, 호환, 별칭</h1>
   <h2 class="post-subtitle"></h2>
 
   <p class="post-meta">
@@ -701,7 +701,7 @@ function googleTranslateElementInit() {
 
 
 
-    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 10 mins</span>
   </p>
 <div class="post-tags">
 <a class="post-tag" href="/tags.html#Typescirpt">#Typescirpt</a><a class="post-tag" href="/tags.html#Javascript">#Javascript</a><a class="post-tag" href="/tags.html#ES6">#ES6</a>
@@ -1044,8 +1044,113 @@ function googleTranslateElementInit() {
 
 <p><br></p>
 
+<h3 id="enum-타입-호환시-주의">Enum 타입 호환시 주의</h3>
+<p>이넘 타입은 <code class="language-plaintext highlighter-rouge">number</code> 타입과 호환되지만 이넘 타입끼리는 호환되지 않는다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">enum</span> <span class="nx">Status</span> <span class="p">{</span> <span class="nx">Ready</span><span class="p">,</span> <span class="nx">Waiting</span> <span class="p">};</span>
+<span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span> <span class="nx">Red</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">,</span> <span class="nx">Green</span> <span class="p">};</span>
+
+<span class="kd">let</span> <span class="nx">ready</span> <span class="o">=</span> <span class="nx">Status</span><span class="p">.</span><span class="nx">Ready</span>
+<span class="nx">ready</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Red</span> <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br></p>
+
 <h3 id="class-타입-호환시-주의">Class 타입 호환시 주의</h3>
 <p>클래스 타입은 클래스 타입끼리 비교할 때 스태틱 멤버(static member)와 생성자(constructor)를 제외하고 속성만 비교한다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Hulk</span> <span class="p">{</span>
+  <span class="nl">handSize</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">numHand</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Captain</span> <span class="p">{</span>
+  <span class="nl">handSize</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">numHand</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Iron</span> <span class="p">{</span>
+  <span class="nl">footSize</span> <span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">numHand</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">hulk</span><span class="p">:</span> <span class="nx">Hulk</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">capt</span><span class="p">:</span> <span class="nx">Captain</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">iron</span> <span class="p">:</span> <span class="nx">Iron</span><span class="p">;</span>
+
+<span class="nx">hulk</span> <span class="o">=</span> <span class="nx">capt</span><span class="p">;</span> <span class="c1">// ok</span>
+<span class="nx">capt</span> <span class="o">=</span> <span class="nx">hulk</span><span class="p">;</span> <span class="c1">// ok</span>
+<span class="nx">iron</span> <span class="o">=</span> <span class="nx">hulk</span><span class="p">;</span> <span class="c1">// 'footSize' 속성이 'Hulk' 형식에 없지만 'Iron' 형식에서 필수입니다.</span>
+</code></pre></div></div>
+
+<p>Hulk와 Captain은 생성자는 다르지만 속성은 똑같기 때문에 호환에 문제가 없다. 하지만, Iron과 Captaindms 생성자는 동일하지만 속성은 다르기 때문에 오류가 발생한다.</p>
+
+<p><br></p>
+
+<h3 id="generics">Generics</h3>
+
+<p>제네릭은 제네릭 타입 간의 호환 여부를 판단할 때 타입 인자 <code class="language-plaintext highlighter-rouge">&lt;T&gt;</code>가 속성에 할당 되었는지를 기준으로 판단한다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>  <span class="c1">// OK, because y matches structure of x</span>
+</code></pre></div></div>
+
+<p>위의 인터페이스는 속성(member 변수)가 없기 때문에 x와 y를 같은 타입으로 간주한다.<br>
+하지만 아래와 같이 인터페이스에 속성이 있다면 제네릭의 타입 인자가 속성에 할당되기 때문에 x와 y는 서로 다른 타입으로 간주된다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>  <span class="c1">// 'Empty&lt;string&gt;' 형식은 'Empty&lt;number&gt;' 형식에 할당할 수 없습니다.</span>
+        <span class="c1">// 'string' 형식은 'number' 형식에 할당할 수 없습니다</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h2 id="타입-별칭type-aliases">타입 별칭(Type Aliases)</h2>
+<p>타입 별칭은 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미한다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// string 타입을 사용할 때</span>
+<span class="kd">const</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// 타입 별칭을 사용할 때</span>
+<span class="kd">type</span> <span class="nx">MyName</span> <span class="o">=</span> <span class="kr">string</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">name</span><span class="p">:</span> <span class="nx">MyName</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>간단한 타입 뿐만 아니라 <code class="language-plaintext highlighter-rouge">interface</code> 레벨의 복잡한 타입에서도 별칭을 부여할 수 있다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">intro</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">address</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">who</span><span class="p">:</span> <span class="nx">intro</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">address</span><span class="p">:</span> <span class="dl">'</span><span class="s1">seoul</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="타입-별칭의-특징">타입 별칭의 특징</h3>
+<p>타입 별칭을 사용하는 이유는, 타입 값을 새로 생성하는 의미보다는 별칭을 부여하여 나중에 쉽게 참고할 수 있도록 이름을 사용하는 것이다.<br>
+이러한 특징이 VSCode 상의 프리뷰 상태로 다른 타입과 어떤 차이점이 있는지 확인해볼 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/179450019-71bf6ec8-d1a8-4229-a541-cda1be7ad1b3.png" alt="image"></p>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/179450095-62e4898f-7cae-4040-8463-a6a50d0b9c7a.png" alt="image"></p>
+
+<h3 id="type-vs-interface">type vs interface</h3>
+<p>타입 별칭과 인터페이스의 가장 큰 차이는 타입의 <code class="language-plaintext highlighter-rouge">확장 여부(가능/불가능)</code>이다.<br>
+인터페이스는 확장이 가능한 반면 타입 별칭은 확장이 불가능하다. 따라서, 가능하면 <code class="language-plaintext highlighter-rouge">type</code> 보다는 <code class="language-plaintext highlighter-rouge">interface</code>를 사용하는 것을 추천한다.</p>
 
 
     </div>
@@ -1057,10 +1162,10 @@ function googleTranslateElementInit() {
 <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/javascript/2022/03/07/javascript-08.html" title="">[Javascript] 이벤트 버블링, 이벤트 캡쳐링, 이벤트 위임</a></li>
-<li><a class="post-link" href="/node.js/2022/02/22/Node.js-06.html" title="">[Node.js] Docker에 Node.js 서버 배포하기</a></li>
-<li><a class="post-link" href="/tdd/2021/12/06/TDD.html" title="">TDD란 무엇이고, 왜 많은 기업에서 TDD 방식을 선호하지 않을까?</a></li>
-<li><a class="post-link" href="/javascript/2022/01/02/javascript-04.html" title="">[ECMAScript6] let, const 키워드</a></li>
+        <li><a class="post-link" href="/javascript/2022/04/11/javascript-10.html" title="">[Javascript] ES6 순회와 이터러블&amp;이터레이터</a></li>
+<li><a class="post-link" href="/javascript/2022/04/14/javascript-13.html" title="">[Javascript] 함수형 사고방식</a></li>
+<li><a class="post-link" href="/vue.js/2022/02/16/vueJs-06.html" title="">[Vue.js] 라이프사이클 훅 이해하기</a></li>
+<li><a class="post-link" href="/eslint/2022/01/06/eslint-03.html" title="">[ESLint] 포맷팅에 특화된 프리티어(Prettier)</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>
