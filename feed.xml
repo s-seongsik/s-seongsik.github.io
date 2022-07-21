@@ -1,6 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-19T14:50:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[TypeScript] Union and Intersection Types(작성중…)</title><link href="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html" rel="alternate" type="text/html" title="[TypeScript] Union and Intersection Types(작성중…)" /><published>2022-07-19T00:00:00+09:00</published><updated>2022-07-19T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/19/typescript-05</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html"><![CDATA[<h2 id="유니온-타입union-type">유니온 타입(Union Type)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-21T14:54:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[TypeScript] Union and Intersection Types(작성중…)</title><link href="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html" rel="alternate" type="text/html" title="[TypeScript] Union and Intersection Types(작성중…)" /><published>2022-07-19T00:00:00+09:00</published><updated>2022-07-19T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/19/typescript-05</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html"><![CDATA[<h2 id="유니온-타입union-type">유니온 타입(Union Type)</h2>
+<p>유니온 타입이란, 자바스크립트의 OR 연산자(<code class="language-plaintext highlighter-rouge">||</code>)와 같은 의미를 갖는다.</p>
 
-<h2 id="인터섹션-타입intersection-type">인터섹션 타입(Intersection Type)</h2>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[유니온 타입(Union Type)]]></summary></entry><entry><title type="html">[TypeScript] 타입스크립트의 추론, 호환, 별칭</title><link href="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html" rel="alternate" type="text/html" title="[TypeScript] 타입스크립트의 추론, 호환, 별칭" /><published>2022-07-13T00:00:00+09:00</published><updated>2022-07-13T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/13/typescript-04</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"><![CDATA[<h2 id="타입-추론tpye-inference">타입 추론(Tpye Inference)</h2>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">union</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="nb">Number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">union</span><span class="p">(</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// string</span>
+<span class="nx">union</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">// number</span>
+</code></pre></div></div>
+
+<p>위 함수에 유니온 타입을 적용하면 파라미터 name에는 <code class="language-plaintext highlighter-rouge">문자열</code>과 <code class="language-plaintext highlighter-rouge">숫자 타입</code> 모두 올 수 있다. 이처럼 <code class="language-plaintext highlighter-rouge">|</code> 연산자를 이용하여 타입을 여러 개 연결하는 방식을 유니온 타입 정의 방식이라고 부른다.</p>
+
+<h3 id="유니온-타입union-type을-사용하는-이유">유니온 타입(Union Type)을 사용하는 이유</h3>
+
+<p>유니온 타입을 사용하는 이유를 코드를 보면 이해하기 쉽다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">padLeft</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">padding</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">padding</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">padding</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">padding</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">padding</span> <span class="o">+</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Expected string or number, got '</span><span class="p">${</span><span class="k">typeof</span> <span class="nx">padding</span><span class="p">}</span><span class="s2">'.`</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="nx">padLeft</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world</span><span class="dl">"</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// returns "    Hello world"</span>
+<span class="nx">padLeft</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world</span><span class="dl">"</span><span class="p">,</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// returns "    Hello world"</span>
+<span class="nx">padLeft</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// Expected string or number, got 'boolean'.</span>
+</code></pre></div></div>
+
+<p>위의 코드를 보면 파라미터 padding에는 <code class="language-plaintext highlighter-rouge">string</code>과 <code class="language-plaintext highlighter-rouge">number</code> 타입 둘다 들어올 수 있기 떄문에 <code class="language-plaintext highlighter-rouge">any</code> 타입으로 지정했다. 하지만, 문제는 <code class="language-plaintext highlighter-rouge">string</code>, <code class="language-plaintext highlighter-rouge">number</code> 타입 이외에 타입이 들어오면 에러를 발생시킨다.</p>
+
+<p>이럴때! 아래와 같이 유니온 타입을 지정해서 사용하면 문제를 해결할 수 있다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">padLeft</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">padding</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">padding</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">padding</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">padding</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">padding</span> <span class="o">+</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Expected string or number, got '</span><span class="p">${</span><span class="k">typeof</span> <span class="nx">padding</span><span class="p">}</span><span class="s2">'.`</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="nx">padLeft</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// 'boolean' 형식의 인수는 'string | number' 형식의 매개 변수에 할당될 수 없습니다.</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="공통-타입이-있는-유니온union-type">공통 타입이 있는 유니온(Union Type)</h2>
+<p>유니온 타입을 사용할 때 주의해야할 점은 만약 공통적인 타입 유형이 있는 경우에는 모든 유형의 공통적인 멤버에만 엑세스할 수 있다는 것이다.</p>
+
+<p>아래의 코드를 보면 더 쉽게 이해할 수 있다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">person</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">age</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kr">interface</span> <span class="nx">person2</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">address</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kr">declare</span> <span class="kd">function</span> <span class="nx">getSmallPet</span><span class="p">():</span> <span class="nx">person</span> <span class="o">|</span> <span class="nx">person2</span><span class="p">;</span>
+ 
+<span class="kd">let</span> <span class="nx">human</span> <span class="o">=</span> <span class="nx">getSmallPet</span><span class="p">();</span>
+<span class="nx">human</span><span class="p">.</span><span class="nx">name</span><span class="p">();</span>
+ 
+<span class="c1">// Only available in one of the two possible types</span>
+<span class="nx">human</span><span class="p">.</span><span class="nx">address</span><span class="p">();</span> <span class="c1">// type error</span>
+</code></pre></div></div>
+
+<p>OR 조건이라며? 근데 왜 공통적인 멤버만 엑세스할 수 있는거지?! 라고 생각할 수 있다.
+나도 처음엔 전부 사용할 수 있는 줄 알았지만, 타입스크립트는 불확실한 타입에 대해서는 모두 에러로 처리한다.</p>
+
+<p>반대로 생각해보면, age만 들어올 수도 있고 addres만 들어올 수 있는 가능성이 있으므로 타입스크립트는 이러한 애매한 타입에 대해서는 과감하게 배재시키는 것 같다.
+따라서, 타입스크립트에서는 좀더 직관적인 관점으로 바라볼 필요가 있다.</p>
+
+<h2 id="인터섹션-타입intersection-type">인터섹션 타입(Intersection Type)</h2>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[유니온 타입(Union Type) 유니온 타입이란, 자바스크립트의 OR 연산자(||)와 같은 의미를 갖는다.]]></summary></entry><entry><title type="html">[TypeScript] 타입스크립트의 추론, 호환, 별칭</title><link href="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html" rel="alternate" type="text/html" title="[TypeScript] 타입스크립트의 추론, 호환, 별칭" /><published>2022-07-13T00:00:00+09:00</published><updated>2022-07-13T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/13/typescript-04</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"><![CDATA[<h2 id="타입-추론tpye-inference">타입 추론(Tpye Inference)</h2>
 <p>타입 추론이란, 타입스크립트가 코드를 해석해 나가는 동작을 의미한다.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>

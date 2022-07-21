@@ -850,15 +850,26 @@ function googleTranslateElementInit() {
       </h2>
       <div class="post-meta">
         <span class="post-date"><i class="fa fa-calendar"></i> Jul 19, 2022</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
       </div>
       <a class="post-excerpt" href="/typescirpt/2022/07/19/typescript-05.html">
         <p>
         유니온 타입(Union Type)
+유니온 타입이란, 자바스크립트의 OR 연산자(||)와 같은 의미를 갖는다.
 
-인터섹션 타입(Intersection Type)
+function union (name: string | Number) {
+    console.log(typeof name);
+}
 
- <span class="read_more">Read More</span>
+union('10') // string
+union(10) // number
+
+
+위 함수에 유니온 타입을 적용하면 파라미터 name에는 문자열과 숫자 타입 모두 올 수 있다. 이처럼 | 연산자를 이용하여 타입을 여러 개 연결하는 방식을 유니온 타입 정의 방식이라고 부른다.
+
+유니온 타입(Union Type)을 사용하는 이유
+
+유니온 타입을 사용하는 이유를 코드를 보면 이해하기 ... <span class="read_more">Read More</span>
         </p>
       </a>
       <div class="post-tags">
