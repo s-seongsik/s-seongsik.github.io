@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-21T14:54:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[TypeScript] Union and Intersection Types(작성중…)</title><link href="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html" rel="alternate" type="text/html" title="[TypeScript] Union and Intersection Types(작성중…)" /><published>2022-07-19T00:00:00+09:00</published><updated>2022-07-19T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/19/typescript-05</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html"><![CDATA[<h2 id="유니온-타입union-type">유니온 타입(Union Type)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-24T20:41:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[TypeScript] Union and Intersection Types</title><link href="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html" rel="alternate" type="text/html" title="[TypeScript] Union and Intersection Types" /><published>2022-07-19T00:00:00+09:00</published><updated>2022-07-19T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/19/typescript-05</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html"><![CDATA[<h2 id="유니온-타입union-type">유니온 타입(Union Type)</h2>
 <p>유니온 타입이란, 자바스크립트의 OR 연산자(<code class="language-plaintext highlighter-rouge">||</code>)와 같은 의미를 갖는다.</p>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">union</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="nb">Number</span><span class="p">)</span> <span class="p">{</span>
@@ -50,10 +50,11 @@
 <p><br /></p>
 
 <h2 id="공통-타입이-있는-유니온union-type">공통 타입이 있는 유니온(Union Type)</h2>
-<p>유니온 타입을 사용할 때 주의해야할 점은 만약 공통적인 타입 유형이 있는 경우에는 모든 유형의 공통적인 멤버에만 엑세스할 수 있다는 것이다.</p>
+<p>유니온 타입을 사용할 때 주의해야할 점은 만약 공통적인 타입 유형이 있는 경우에는 모든 유형에 대해 유효한 경우에만 엑세스할 수 있다는 것이다.</p>
 
 <p>아래의 코드를 보면 더 쉽게 이해할 수 있다.</p>
 
+<h3 id="예제1">예제1</h3>
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">person</span> <span class="p">{</span>
   <span class="nx">name</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">age</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
@@ -79,7 +80,188 @@
 <p>반대로 생각해보면, age만 들어올 수도 있고 addres만 들어올 수 있는 가능성이 있으므로 타입스크립트는 이러한 애매한 타입에 대해서는 과감하게 배재시키는 것 같다.
 따라서, 타입스크립트에서는 좀더 직관적인 관점으로 바라볼 필요가 있다.</p>
 
-<h2 id="인터섹션-타입intersection-type">인터섹션 타입(Intersection Type)</h2>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[유니온 타입(Union Type) 유니온 타입이란, 자바스크립트의 OR 연산자(||)와 같은 의미를 갖는다.]]></summary></entry><entry><title type="html">[TypeScript] 타입스크립트의 추론, 호환, 별칭</title><link href="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html" rel="alternate" type="text/html" title="[TypeScript] 타입스크립트의 추론, 호환, 별칭" /><published>2022-07-13T00:00:00+09:00</published><updated>2022-07-13T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/13/typescript-04</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"><![CDATA[<h2 id="타입-추론tpye-inference">타입 추론(Tpye Inference)</h2>
+<h3 id="예제2">예제2</h3>
+
+<p>아래 예제 코드도 마찬가지로 Union의 모든 타입이 유효한 경우에만 작업을 허용한다.
+예를 들어, <code class="language-plaintext highlighter-rouge">string</code> 타입에서만 사용할 수 있는 메서드를 <code class="language-plaintext highlighter-rouge">number | string</code>에서는 사용할 수 없다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printId</span><span class="p">(</span><span class="nx">id</span><span class="p">:</span> <span class="kr">number</span> <span class="o">|</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// 'string | number' 형식에 'toUpperCase' 속성이 없습니다.</span>
+<span class="c1">// 'number' 형식에 'toUpperCase' 속성이 없습니다.</span>
+</code></pre></div></div>
+
+<h3 id="해결책">해결책</h3>
+
+<p>해결책은 코드와의 결합을 좁히는 것이다. 좁히는 방법은 타입스크립트의 코드 구조를 기반으로 값에 대해 보다 구체적인 유형을 추론할 수 있도록 해주는 것이다.</p>
+
+<p>예를 들어 타입스크립트 값에는 오직 <code class="language-plaintext highlighter-rouge">string</code>이 있다는 것을 알고 싶다면 <code class="language-plaintext highlighter-rouge">typeof "string"</code> 조건을 사용하는 것이다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printId</span><span class="p">(</span><span class="nx">id</span><span class="p">:</span> <span class="kr">number</span> <span class="o">|</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">id</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// 여기는, id는 number 타입이다.</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">printId</span><span class="p">(</span><span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// STRING</span>
+<span class="nx">printId</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1">// 100</span>
+</code></pre></div></div>
+
+<p>이처럼 해당 타입을 확실히 허용할 수 있는 조건을 걸어주면 해당 타입으로 작업을 진행할 수 있다.</p>
+
+<p><br /></p>
+
+<h2 id="discriminating-unions">Discriminating Unions</h2>
+<p>공용체 작업을 위한 일반적인 기술은 타입스크립트가 현재 유형을 좁히는 데 사용할 수 있는 리터럴 타입을 사용하는 단일 필드를 갖는 것이다.</p>
+
+<p>예를 들어, <code class="language-plaintext highlighter-rouge">state</code>라는 단일 공유 필드가 있는 세 가지 유형의 공용체를 만들 것이다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">LoadingState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">state</span><span class="p">:</span> <span class="dl">'</span><span class="s1">loading</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">FaildState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">state</span><span class="p">:</span> <span class="dl">'</span><span class="s1">failed</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nl">code</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">SuccessState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">state</span><span class="p">:</span> <span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nl">response</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">duration</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+    <span class="nl">summary</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">workState</span> <span class="o">=</span> 
+  <span class="o">|</span> <span class="nx">LoadingState</span>
+  <span class="o">|</span> <span class="nx">FaildState</span>
+  <span class="o">|</span> <span class="nx">SuccessState</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>위의 모든 유형에는 <code class="language-plaintext highlighter-rouge">state</code>라는 공통의 필드가 있으며 고유한 필드도 존재한다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">LoadingState</th>
+      <th style="text-align: left">FaildState</th>
+      <th style="text-align: left">SuccessState</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">state</td>
+      <td style="text-align: left">state</td>
+      <td style="text-align: left">state</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">response</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">state</code> 필드가 모든 유형에서 공통적으로 들어있다는 것을 감안했을 때, <code class="language-plaintext highlighter-rouge">workState</code> 코드에서는 존재 유무 확인없이 엑세스하는 것이 안전하다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">state</code>를 리터럴 타입으로 사용하면, 해당 문자열과 <code class="language-plaintext highlighter-rouge">state</code>값을 비교할 수 있다.
+또한, state는 현재 타입스크립트에서 사용 중인 유형인 것을 알 수 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">LoadingState</th>
+      <th style="text-align: left">FaildState</th>
+      <th style="text-align: left">SuccessState</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"loading"</td>
+      <td style="text-align: left">"failed"</td>
+      <td style="text-align: left">"success"</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이 경우, <code class="language-plaintext highlighter-rouge">switch</code>문을 사용하여 런타임에 표시되는 유형을 좁힐 수 있다.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">workState</span> <span class="o">=</span> 
+  <span class="o">|</span> <span class="nx">LoadingState</span>
+  <span class="o">|</span> <span class="nx">FaildState</span>
+  <span class="o">|</span> <span class="nx">SuccessState</span><span class="p">;</span>
+
+
+<span class="kd">function</span> <span class="nx">logger</span><span class="p">(</span><span class="nx">state</span><span class="p">:</span> <span class="nx">workState</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+  
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">loading</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="dl">"</span><span class="s2">Downloading...</span><span class="dl">"</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">failed</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`Error </span><span class="p">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">code</span><span class="p">}</span><span class="s2"> downloading`</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`Downloaded </span><span class="p">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="s2"> - </span><span class="p">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">duration</span><span class="p">}</span><span class="s2"> - </span><span class="p">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">summary</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">loading</span><span class="p">:</span> <span class="nx">workState</span> <span class="o">=</span> <span class="p">{</span><span class="na">state</span><span class="p">:</span><span class="dl">'</span><span class="s1">loading</span><span class="dl">'</span><span class="p">};</span>
+<span class="kd">const</span> <span class="nx">failed</span><span class="p">:</span> <span class="nx">workState</span> <span class="o">=</span> <span class="p">{</span><span class="na">state</span><span class="p">:</span><span class="dl">'</span><span class="s1">failed</span><span class="dl">'</span><span class="p">,</span> <span class="na">code</span><span class="p">:</span><span class="mi">200</span><span class="p">};</span>
+<span class="kd">const</span> <span class="nx">success</span><span class="p">:</span> <span class="nx">workState</span> <span class="o">=</span> <span class="p">{</span><span class="na">state</span><span class="p">:</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">,</span> <span class="na">response</span><span class="p">:{</span><span class="na">title</span><span class="p">:</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">,</span> <span class="na">duration</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="na">summary</span><span class="p">:</span><span class="dl">'</span><span class="s1">success!!!</span><span class="dl">'</span><span class="p">}};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="nx">loading</span><span class="p">))</span> <span class="c1">// Downloading...</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="nx">failed</span><span class="p">))</span>  <span class="c1">// Error 200 downloading</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="nx">success</span><span class="p">))</span> <span class="c1">// Downloaded test - 10 - success!!!</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="인터섹션-타입intersection-type">인터섹션 타입(Intersection Type)</h2>
+<p>인터섹션 타입은 유니온 타입과 다르게 어려 타입을 모두 만족하는 하나의 타입을 의미한다.</p>
+
+<p>아래의 코드를 보자.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">NetError</span> <span class="p">{</span>
+  <span class="nl">success</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">error</span><span class="p">?:</span> <span class="p">{</span> <span class="na">message</span><span class="p">:</span> <span class="kr">string</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">networking</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">networkingResponse</span> <span class="o">=</span> <span class="nx">networking</span> <span class="o">&amp;</span> <span class="nx">NetError</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">handleNetworking</span> <span class="o">=</span> <span class="p">(</span><span class="nx">response</span><span class="p">:</span> <span class="nx">networkingResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">error</span><span class="p">:</span> <span class="nx">networkingResponse</span> <span class="o">=</span>  <span class="p">{</span> <span class="na">success</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">error</span><span class="p">:</span> <span class="p">{</span><span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">500</span><span class="dl">'</span><span class="p">},</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">통신</span><span class="dl">'</span><span class="p">}</span>
+<span class="kd">const</span> <span class="nx">success</span><span class="p">:</span> <span class="nx">networkingResponse</span> <span class="o">=</span>  <span class="p">{</span> <span class="na">success</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">통신</span><span class="dl">'</span><span class="p">}</span>
+
+<span class="c1">// error</span>
+<span class="nx">handleNetworking</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="c1">// 500</span>
+<span class="c1">//success</span>
+<span class="nx">handleNetworking</span><span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="c1">// 통신</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">success</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">error</span><span class="p">?:</span> <span class="p">{</span> <span class="na">message</span><span class="p">:</span> <span class="kr">string</span> <span class="p">};</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>이처럼 <code class="language-plaintext highlighter-rouge">&amp;</code> 연산자를 이용해 여러 개의 타입 정의를 하나로 합치는 방식을 인터섹션 타입 정의 방식이라고 한다.</p>]]></content><author><name>GitHub User</name></author><category term="Typescirpt" /><category term="Typescirpt" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[유니온 타입(Union Type) 유니온 타입이란, 자바스크립트의 OR 연산자(||)와 같은 의미를 갖는다.]]></summary></entry><entry><title type="html">[TypeScript] 타입스크립트의 추론, 호환, 별칭</title><link href="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html" rel="alternate" type="text/html" title="[TypeScript] 타입스크립트의 추론, 호환, 별칭" /><published>2022-07-13T00:00:00+09:00</published><updated>2022-07-13T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/13/typescript-04</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/13/typescript-04.html"><![CDATA[<h2 id="타입-추론tpye-inference">타입 추론(Tpye Inference)</h2>
 <p>타입 추론이란, 타입스크립트가 코드를 해석해 나가는 동작을 의미한다.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
