@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-26T14:54:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[Javascript] 화살표 함수의 this 바인딩</title><link href="http://localhost:4000/javascript/2022/07/26/javascript-15.html" rel="alternate" type="text/html" title="[Javascript] 화살표 함수의 this 바인딩" /><published>2022-07-26T00:00:00+09:00</published><updated>2022-07-26T00:00:00+09:00</updated><id>http://localhost:4000/javascript/2022/07/26/javascript-15</id><content type="html" xml:base="http://localhost:4000/javascript/2022/07/26/javascript-15.html"><![CDATA[<h2 id="화살표-함수arrow-function">화살표 함수(Arrow Function)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-27T14:54:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[Javascript] 화살표 함수의 this 바인딩(미완)</title><link href="http://localhost:4000/javascript/2022/07/26/javascript-15.html" rel="alternate" type="text/html" title="[Javascript] 화살표 함수의 this 바인딩(미완)" /><published>2022-07-26T00:00:00+09:00</published><updated>2022-07-26T00:00:00+09:00</updated><id>http://localhost:4000/javascript/2022/07/26/javascript-15</id><content type="html" xml:base="http://localhost:4000/javascript/2022/07/26/javascript-15.html"><![CDATA[<h2 id="화살표-함수arrow-function">화살표 함수(Arrow Function)</h2>
 <p>ES6가 도입되면서 새롭게 나타난 <code class="language-plaintext highlighter-rouge">화살표 함수(Arrow Function)</code>는 <code class="language-plaintext highlighter-rouge">function</code> 키워드 대신 화살표<code class="language-plaintext highlighter-rouge">(=&gt;)</code>를 사용하여 기존의 전통적인 함수표현<code class="language-plaintext highlighter-rouge">(function)</code>의 간편한 대안으로 새롭게 등장했다.<br />
 화살표 함수의 기본 문법은 아래와 같이 작성한다.</p>
 
@@ -26,7 +26,124 @@
     <span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
     <span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>GitHub User</name></author><category term="Javascript" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[화살표 함수(Arrow Function) ES6가 도입되면서 새롭게 나타난 화살표 함수(Arrow Function)는 function 키워드 대신 화살표(=&gt;)를 사용하여 기존의 전통적인 함수표현(function)의 간편한 대안으로 새롭게 등장했다. 화살표 함수의 기본 문법은 아래와 같이 작성한다.]]></summary></entry><entry><title type="html">[TypeScript] Union and Intersection Types</title><link href="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html" rel="alternate" type="text/html" title="[TypeScript] Union and Intersection Types" /><published>2022-07-19T00:00:00+09:00</published><updated>2022-07-19T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/19/typescript-05</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html"><![CDATA[<h2 id="유니온-타입union-type">유니온 타입(Union Type)</h2>
+</code></pre></div></div>
+
+<p>이와 같이 기존의 전통적인 함수표현과 화살표 함수는 기능적으로는 동일하다. 하지만 왜 화살표 함수가 등장했으며 사용하는 것일까?
+단순하게 함수 표현이 간단하기 때문에 사용하는 것일까?</p>
+
+<p>심지어 화살표 함수는 아래와 같은 조건이 있다.</p>
+<ul>
+  <li>무조건 익명함수로만 사용해야 한다.</li>
+  <li>메소드나 생성자 함수로 사용할 수 없다.</li>
+  <li>yield를 화살표 함수 내부에서 사용할 수 없다.</li>
+  <li>일반적으로 스코프를 지정할 때 사용하는 call, apply, bind 메서드를 사용할 수 없다.</li>
+</ul>
+
+<p>결론부터 말하면, 화살표 함수를 사용하는 이유는 <code class="language-plaintext highlighter-rouge">this 바인딩</code> 때문이다. 
+기존의 <code class="language-plaintext highlighter-rouge">this</code> 바인딩과 화살표 함수의 <code class="language-plaintext highlighter-rouge">this</code> 바인딩에는 무슨 차이가 있는지 알아보자.</p>
+
+<p><br /></p>
+
+<h2 id="기존의-함수의-this-바인딩">기존의 함수의 this 바인딩</h2>
+<p>화살표 함수가 등장하기 전까지는, 모든 새로운 함수는, 그 함수가 호출되는 방법에 따라서 참조하는 this가 정의되었다.</p>
+
+<ul>
+  <li>일반 함수로 호출되는 경우 =&gt; 전역객체를 <code class="language-plaintext highlighter-rouge">this</code></li>
+  <li>메소드로서 호출되는 경우 =&gt; 메소드를 호출한 객체를 <code class="language-plaintext highlighter-rouge">this</code></li>
+  <li>call, apply, bind 메서드 호출 =&gt; 첫 번째 인자로 넘겨주는 것이 <code class="language-plaintext highlighter-rouge">this</code></li>
+</ul>
+
+<p>이렇게 함수 호출 방식에 따라 참조하는 this 객체가 다르기 때문에 킹받는 일이 많다…</p>
+
+<p>가령 아래와 같은 예시를 들 수 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 일반 함수로서 호출은 전역객체를 this로 참조함</span>
+<span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">address</span> <span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">addr</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">addr</span><span class="p">()</span> 
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">address</span><span class="p">();</span> <span class="c1">// undefined </span>
+
+<span class="c1">// 메서드로서 호출은 그 객체를 this로 참조함</span>
+<span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">address</span> <span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> 
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">address</span><span class="p">();</span> <span class="c1">// siksik</span>
+</code></pre></div></div>
+<p>첫 번째 함수는</p>
+
+<ul>
+  <li>person.address() 메서드가 실행됨.</li>
+  <li>addr은 일반 함수로서의 호출이므로 전역객체를 <code class="language-plaintext highlighter-rouge">this</code>로 참조함</li>
+  <li>전역객체에는 name이라는 멤버가 존재하지 않으므로 <code class="language-plaintext highlighter-rouge">undefined</code> 출력</li>
+</ul>
+
+<p>두 번째 함수는</p>
+<ul>
+  <li>person.address() 메서드가 실행됨.</li>
+  <li>addr은 메서드로서 호출이므로 그 객체를 <code class="language-plaintext highlighter-rouge">this</code>로 참조함</li>
+  <li>해당 객체에 name이라는 멤버가 존재하므로 <code class="language-plaintext highlighter-rouge">siksik</code> 출력</li>
+</ul>
+
+<p>이렇게 참조 객체를 하나하나 신경쓰는게 짜증나는 경우가 많다.
+그래서 등장한 화살표 함수!!</p>
+
+<p><br /></p>
+
+<h2 id="화살표-함수의-this-바인딩">화살표 함수의 this 바인딩</h2>
+<p>기존의 함수는 선얼할 때 this에 바인딩할 객체가 호출 방식에 따라 동적으로 결정되었다면, 화살표 함수는 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정된다.<br />
+쉽게 말해, <code class="language-plaintext highlighter-rouge">화살표 함수의 this는 언제나 상위 스코프의 this를 가리킨다.</code> 이를 Lexical this라 한다.  <br />
+달리 말하면, <code class="language-plaintext highlighter-rouge">화살표 함수는 자신의 this가 존재하지 않는다!</code></p>
+
+<blockquote>
+  <p>자바스크립트는 어떤 식별자(변수)를 탐색할 때 현재 환경에서 그 변수가 없으면 바로 상위 환경을 검색한다. 또 없으면 그 상위, 이렇게 상위 환경으로 변수를 올라가면서 찾으며 가장 최상위 환경에 도달할 때 까지도 찾지 못하면 없다고 결론되는 것이다. 화살표 함수는 자신의 this가 존재하지 않으므로 그 상위 this를 동적으로 참조하게 되는 것이다.</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 일반 함수로서 호출은 전역객체를 this로 참조함</span>
+<span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">address</span> <span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">addr</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">addr</span><span class="p">()</span> 
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">address</span><span class="p">();</span> <span class="c1">// siksik </span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="화살표-함수를-사용해서는-안되는-경우">화살표 함수를 사용해서는 안되는 경우</h2>
+<p>화살표 함수는 렉시컬 this를 지원하므로 콜백 함수로 사용하기에는 매우~편리하다. 하지만 화살표 함수를 사용하면 오히려 혼란이 오는 경우가 있다.</p>
+
+<h3 id="메소드">메소드</h3>
+<p>화살표 함수를 메소드로 정의하는 것은 피해야 한다. 아래의 코드를 보자</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">siksik</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">callName</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">callName</span><span class="p">()</span> <span class="c1">// undefined </span>
+</code></pre></div></div>
+
+<h3 id="prototype">prototype</h3>
+
+<h3 id="생성자-함수">생성자 함수</h3>
+
+<p>###</p>]]></content><author><name>GitHub User</name></author><category term="Javascript" /><category term="Javascript" /><category term="ES6" /><summary type="html"><![CDATA[화살표 함수(Arrow Function) ES6가 도입되면서 새롭게 나타난 화살표 함수(Arrow Function)는 function 키워드 대신 화살표(=&gt;)를 사용하여 기존의 전통적인 함수표현(function)의 간편한 대안으로 새롭게 등장했다. 화살표 함수의 기본 문법은 아래와 같이 작성한다.]]></summary></entry><entry><title type="html">[TypeScript] Union and Intersection Types</title><link href="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html" rel="alternate" type="text/html" title="[TypeScript] Union and Intersection Types" /><published>2022-07-19T00:00:00+09:00</published><updated>2022-07-19T00:00:00+09:00</updated><id>http://localhost:4000/typescirpt/2022/07/19/typescript-05</id><content type="html" xml:base="http://localhost:4000/typescirpt/2022/07/19/typescript-05.html"><![CDATA[<h2 id="유니온-타입union-type">유니온 타입(Union Type)</h2>
 <p>유니온 타입이란, 자바스크립트의 OR 연산자(<code class="language-plaintext highlighter-rouge">||</code>)와 같은 의미를 갖는다.</p>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">union</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="nb">Number</span><span class="p">)</span> <span class="p">{</span>
