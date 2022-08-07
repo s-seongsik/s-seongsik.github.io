@@ -7,22 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>[TypeScript] 제네릭(Generic, 미완) | IT 데이터베이스</title>
+<title>[Jest] FE 테스트 환경 구축하기(미완) | IT 데이터베이스</title>
 <meta name="generator" content="Jekyll v4.2.2">
-<meta property="og:title" content="[TypeScript] 제네릭(Generic, 미완)">
+<meta property="og:title" content="[Jest] FE 테스트 환경 구축하기(미완)">
 <meta name="author" content="GitHub User">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="제네릭(Generic)의 사전적 정의 제네릭은 C#, Java 등의 언어에서 재사용성이 높은 컴포넌트를 만들 때 자주 활용되는 특징이다. 특히, 한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는데 사용된다.">
-<meta property="og:description" content="제네릭(Generic)의 사전적 정의 제네릭은 C#, Java 등의 언어에서 재사용성이 높은 컴포넌트를 만들 때 자주 활용되는 특징이다. 특히, 한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는데 사용된다.">
-<link rel="canonical" href="http://localhost:4000/typescirpt/2022/07/31/typescript-07.html">
-<meta property="og:url" content="http://localhost:4000/typescirpt/2022/07/31/typescript-07.html">
+<meta name="description" content="테스트 환경이란? 테스트 환경이란 프로그램이 개발자의 의도에 맞게 잘 동작하는지를 확인할 수 있는 환경을 말한다. 테스트를 통해 잠재적 에러들을 미리 발견하고, 의도대로 잘 동작하는지를 확인할 수 있다.">
+<meta property="og:description" content="테스트 환경이란? 테스트 환경이란 프로그램이 개발자의 의도에 맞게 잘 동작하는지를 확인할 수 있는 환경을 말한다. 테스트를 통해 잠재적 에러들을 미리 발견하고, 의도대로 잘 동작하는지를 확인할 수 있다.">
+<link rel="canonical" href="http://localhost:4000/jest/2022/07/31/typescript-07.html">
+<meta property="og:url" content="http://localhost:4000/jest/2022/07/31/typescript-07.html">
 <meta property="og:site_name" content="IT 데이터베이스">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2022-07-31T00:00:00+09:00">
 <meta name="twitter:card" content="summary">
-<meta property="twitter:title" content="[TypeScript] 제네릭(Generic, 미완)">
+<meta property="twitter:title" content="[Jest] FE 테스트 환경 구축하기(미완)">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-07-31T00:00:00+09:00","datePublished":"2022-07-31T00:00:00+09:00","description":"제네릭(Generic)의 사전적 정의 제네릭은 C#, Java 등의 언어에서 재사용성이 높은 컴포넌트를 만들 때 자주 활용되는 특징이다. 특히, 한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는데 사용된다.","headline":"[TypeScript] 제네릭(Generic, 미완)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/typescirpt/2022/07/31/typescript-07.html"},"url":"http://localhost:4000/typescirpt/2022/07/31/typescript-07.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-07-31T00:00:00+09:00","datePublished":"2022-07-31T00:00:00+09:00","description":"테스트 환경이란? 테스트 환경이란 프로그램이 개발자의 의도에 맞게 잘 동작하는지를 확인할 수 있는 환경을 말한다. 테스트를 통해 잠재적 에러들을 미리 발견하고, 의도대로 잘 동작하는지를 확인할 수 있다.","headline":"[Jest] FE 테스트 환경 구축하기(미완)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jest/2022/07/31/typescript-07.html"},"url":"http://localhost:4000/jest/2022/07/31/typescript-07.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="shortcut icon" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -654,13 +654,13 @@ function googleTranslateElementInit() {
   </style>
 <section class="page-banner">
     <div class="page-banner-img">
-<div style="background-image: url(/assets/images/banners/typescript.jpeg)"></div>
-        <img class="img-placeholder" src="/assets/images/banners/typescript.jpeg">
+<div style="background-image: url(/assets/images/banners/jest.png)"></div>
+        <img class="img-placeholder" src="/assets/images/banners/jest.png">
 </div>
     <div class="wrapper">
       <div class="page-banner-inner">
 <header class="post-header">
-  <h1 class="post-title p-name" itemprop="name headline">[TypeScript] 제네릭(Generic, 미완)</h1>
+  <h1 class="post-title p-name" itemprop="name headline">[Jest] FE 테스트 환경 구축하기(미완)</h1>
   <h2 class="post-subtitle"></h2>
 
   <p class="post-meta">
@@ -704,7 +704,7 @@ function googleTranslateElementInit() {
     <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
   </p>
 <div class="post-tags">
-<a class="post-tag" href="/tags.html#Typescirpt">#Typescirpt</a><a class="post-tag" href="/tags.html#Javascript">#Javascript</a><a class="post-tag" href="/tags.html#ES6">#ES6</a>
+<a class="post-tag" href="/tags.html#Test">#Test</a><a class="post-tag" href="/tags.html#Typescirpt">#Typescirpt</a><a class="post-tag" href="/tags.html#Javascript">#Javascript</a><a class="post-tag" href="/tags.html#ES6">#ES6</a>
 </div></header>
 </div>
     </div>
@@ -879,10 +879,27 @@ function googleTranslateElementInit() {
 
     <div class="post-content e-content" itemprop="articleBody">
 
-      <h2 id="제네릭generic의-사전적-정의">제네릭(Generic)의 사전적 정의</h2>
-<p>제네릭은 C#, Java 등의 언어에서 재사용성이 높은 컴포넌트를 만들 때 자주 활용되는 특징이다. 특히, 한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는데 사용된다.</p>
+      <h2 id="테스트-환경이란">테스트 환경이란?</h2>
+<p>테스트 환경이란 프로그램이 개발자의 의도에 맞게 잘 동작하는지를 확인할 수 있는 환경을 말한다. 테스트를 통해 잠재적 에러들을 미리 발견하고, 의도대로 잘 동작하는지를 확인할 수 있다.</p>
 
-<p>Java나 C# 같은 정적 타입 언어의 경우, 함수 또는 클래스를 정의하는 시점에 매개변수나 반환값의 타입을 선언되어야 한다. <code class="language-plaintext highlighter-rouge">TypeScript</code>도 정적 타입 언어이기 때문에 함수 또는 클래스를 정의하는 시점에 매개변수나 반환값의 타입을 선언하여야 한다. 하지만, 함수나 클래스를 정의하는 시점에 매개변수와 반환값의 타입을 선언하기 어려운 경우가 종종 있는데 이럴 때 제네릭을 활용하여 해결할 수 있다.</p>
+<h2 id="테스트-종류">테스트 종류</h2>
+<p>일반적으로 소프트웨어 개발에서 테스트라고 하면 보통 4가지를 말한다.</p>
+
+<h3 id="정적-테스트static-test">정적 테스트(Static Test)</h3>
+<p>정적 테스트는 코드의 타입이나 컨벤션 등을 잡아주는 테스트라고 생각하면 된다. 
+예시로는, 코드 컨벤션을 강제하거나 클린 코드를 도와주는 ESLint가 있다.</p>
+
+<h3 id="단위-테스트unit-test">단위 테스트(Unit Test)</h3>
+<p>단위 테스트는 말 그대로 코드에서 최소 단위의 함수, 클래스 혹은 하나의 컴포넌트를 테스트할 때 단위 테스트라고 말한다.</p>
+
+<h3 id="통합-테스트integration-test">통합 테스트(Integration Test)</h3>
+<p>통합 테스트는 두 개 이상의 모듈을 연결하여 코드를 테스트하는 것을 말한다. 객체끼리 데이터를 주거 받거나 여러 모듈을 핸들링하는 테스트를 통합 테스트라고 보면 된다. 프론트엔드 영역에서는 페이지 자체에 대한 테스트 코드를 짜면 통합 테스트라고 볼 수 있다.
+예를 들면, 백엔드에서 api를 통해 데이터를 전달받고, 이를 컴포넌트에 뿌려줄 때 상호작용이 잘 되는지 테스트 한다.</p>
+
+<h3 id="e2e-test">E2E Test</h3>
+<p>E2E 테스트는 ent to end의 줄임말로, 위의 모듈과 코드 입장에서 테스트하던 방식과는 다르게 사용자 입장에서 테스트하는 것을 말한다.
+예를 들어, 실제 사용자 처럼 개발 환경으로 구성된 웹사이트에서 직접 행동해보고 의도대로 정상 동작하는지 확인하는 것을 말한다.</p>
+
 
 
     </div>
@@ -894,10 +911,10 @@ function googleTranslateElementInit() {
 <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/typescirpt/2022/05/17/typescript-02.html" title="">[TypeScript] 인터페이스 이해하기</a></li>
-<li><a class="post-link" href="/typescirpt/2022/04/27/typescript-01.html" title="">[TypeScript] TypeScript 시작하기</a></li>
-<li><a class="post-link" href="/vue.js/2022/01/10/vueJs-02.html" title="">[Vue.js] Vue CLI로 프로젝트 생성하기</a></li>
-<li><a class="post-link" href="/webpack/2021/12/15/Webpack-03.html" title="">[Webpack] loader (1)</a></li>
+        <li><a class="post-link" href="/nuxt.js/2022/01/24/nuxtJs-01.html" title="">[Nuxt.js] 공식문서로 빠르게 배우기 1탄 - 시작하기</a></li>
+<li><a class="post-link" href="/react/2022/04/21/react-02.html" title="">[React] 라이프 사이클 메서드란?</a></li>
+<li><a class="post-link" href="/javascript/2022/03/09/javascript-09.html" title="">[Javascript] DOM의 개념</a></li>
+<li><a class="post-link" href="/web/2021/12/21/Web-SSR-CSR.html" title="">[Web] 서버 사이드 렌더링(SSR)과 클라이언트 사이드 렌더링(CSR) 개념</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>
