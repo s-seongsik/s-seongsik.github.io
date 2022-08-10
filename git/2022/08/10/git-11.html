@@ -701,7 +701,7 @@ function googleTranslateElementInit() {
 
 
 
-    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
   </p>
 <div class="post-tags">
 <a class="post-tag" href="/tags.html#Git">#Git</a><a class="post-tag" href="/tags.html#Github">#Github</a>
@@ -888,6 +888,289 @@ function googleTranslateElementInit() {
   <li>ssh-key를 회사 github 계정에 등록했는데 Permission Error가 발생했다.</li>
 </ul>
 
+<p>해결 방법은 간단했다.</p>
+<ol>
+  <li>ssh-key 생성</li>
+  <li>ssh-key 등록</li>
+  <li>ssh config 파일 작성</li>
+  <li>github 계정에 ssh-key 등록</li>
+  <li>로컬 저장소별로 .git config 파일 수정</li>
+</ol>
+
+<p><br></p>
+
+<h2 id="ssh-key-생성">ssh-key 생성</h2>
+<ul>
+  <li>~/.ssh로 이동한다.</li>
+  <li>만약 존재하지않으면 생성 후 이동</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> ~/.ssh
+<span class="nv">$ </span><span class="nb">cd</span> ~/.ssh
+</code></pre></div></div>
+
+<p><br></p>
+
+<ul>
+  <li>이동 후 ssh-key를 생성</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> <span class="o">[</span>암호화 방식] <span class="nt">-b</span> <span class="o">[</span>생성 Key 크기] <span class="nt">-C</span> <span class="s1">'GitHub 계정 메일'</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">구분</th>
+      <th style="text-align: left">내용</th>
+      <th style="text-align: left">비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">암호화 방식</td>
+      <td style="text-align: left">ssh-key의 암호화 방식</td>
+      <td style="text-align: left">rsa 방식 사용</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">생성 Key 크기</td>
+      <td style="text-align: left">3072(default)~4096</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GitHub 계정 메일</td>
+      <td style="text-align: left">GitHub 생성 시 등록에 사용한 메일 주소</td>
+      <td style="text-align: left">우측상단 &gt; Settings &gt; Emails</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096 <span class="nt">-C</span> <span class="s2">"your_email@gmail.com"</span>
+</code></pre></div></div>
+
+<p>명령어를 실행하면 아래와 같이 나올 것이다.
+생성할 파일의 이름을 적어달라는 것인데. 그냥 엔터를 누르면 <code class="language-plaintext highlighter-rouge">id_rsa</code>라는 이름으로 저장된다. 따로 저장할 이름이 있으면 작성하면 된다.
+나는 개인 github 계정에 넣을거라 <code class="language-plaintext highlighter-rouge">sikbook</code>이라고 작명했다.</p>
+
+<p><img width="747" alt="image" src="https://user-images.githubusercontent.com/52439201/183920858-da4caa92-749f-403f-95af-279df3a85f98.png"></p>
+
+<p>파일 명을 작성하고 엔터를 누르면 비밀번호를 입력하라고 하는데 엔터를 누르고 넘어간다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>:
+Enter same passphrase again:
+Your identification has been saved <span class="k">in </span>sikbook
+Your public key has been saved <span class="k">in </span>sikbook.pub
+The key fingerprint is:
+SHA256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa your_email@gmail.com
+The key<span class="s1">'s randomart image is:
++---[RSA 4096]----+
+|          ..+..=+|
+|           * +=.+|
+|      o   + +E=oo|
+|       + . =+@ o=|
+|      . S . B+=.+|
+|     . .      .o.|
+|    .   ..    +  |
+|  .. . ....  o . |
+| .... .....  .o  |
++----[SHA256]-----+
+</span></code></pre></div></div>
+
+<p>여기서 중요한건 <code class="language-plaintext highlighter-rouge">Enter file in which to save the key (/Users/sikbook/.ssh/id_rsa):</code> 이 부분이다. 구분할 수 있는 이름으로 작명해야 등록할 github 계정에 잘 등록할 수 있다.</p>
+
+<p><br></p>
+
+<ul>
+  <li>ls 통해 <code class="language-plaintext highlighter-rouge">.pub</code> 파일과 그냥 파일이 생성된 것을 확인할 수 있다.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">sikbook.pub</code> 파일은 공개키이고</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">sikbook</code>은 비밀키이다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span>
+<span class="o">&gt;</span> sikbook   sikbook.pub
+</code></pre></div></div>
+
+<p><br></p>
+
+<h2 id="ssh-key-등록">ssh-key 등록</h2>
+<p>ssh-key를 생성했다면 키를 ssh-agent에 록해줘야 한다.
+그 이유는, 등록하지 않으면 매번 비밀번호를 입력해야하는 수고스러움이 있기 때문이다.</p>
+
+<p>만약 ssh-agent 가 실행중이라면 한번이라도 push를 할 경우 자동으로 key가 등록되며, key에 비밀번호가 있는 경우에는 최초 한번만 입력하면 된다.</p>
+
+<p>아래와 같이 <code class="language-plaintext highlighter-rouge">ssh-add [생성한 ssh-key의 경로]</code>로 등록하면 된다.</p>
+
+<ul>
+  <li>비밀키는 나의 ssh-agent에 등록하는 것이다.</li>
+  <li>공개키는 github계정에 등록하는 것이다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># SSH 에이전트 백그라운드로 실행 </span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>ssh-agent <span class="nt">-s</span><span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-add ~/.ssh/sikbook
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>아래와 같이 나오면 정상 등록 된것이다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Identity added: /Users/sikbook/.ssh/sikbook <span class="o">(</span>sungsik9831@gmail.com<span class="o">)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<p>만약 아래와 같이 오류가 발생하면</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not open a connection to your authentication agent.
+</code></pre></div></div>
+
+<p>아래와 같이 ssh-agent를 다시 실행한다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="si">$(</span>ssh-agent<span class="si">)</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<h2 id="ssh-config-파일-작성">ssh config 파일 작성</h2>
+
+<p>ssh config파일은 ~/.ssh 위치에서 생성한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi ~/.ssh/config
+</code></pre></div></div>
+
+<p>아래와 같이 작성하면 된다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host github.com-[사용할 이름]
+  HostName github.com
+  IdentityFile <span class="o">[</span>ssh-key 위치]
+  User <span class="o">[</span>Github 계정 이름]
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">구분</th>
+      <th style="text-align: left">내용</th>
+      <th style="text-align: left">비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Host github.com-[사용할 이름]</td>
+      <td style="text-align: left">원하는 이름</td>
+      <td style="text-align: left">자주 쓸 이름으로 작명</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HostName</td>
+      <td style="text-align: left">github.com</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IdentityFile</td>
+      <td style="text-align: left">ssh-key 파일 경로</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">User</td>
+      <td style="text-align: left">Github 계정 이름</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br></p>
+
+<h2 id="github-계정에-ssh-key-등록">github 계정에 ssh-key 등록</h2>
+
+<ul>
+  <li>등록할 Github 계정 &gt; 우측 상단에 Settings</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/183929034-2f446d27-a9a8-4a8b-af2e-b2f63b2fc581.png" alt="image"></p>
+
+<p><br></p>
+
+<ul>
+  <li>SSH and GPG keys &gt; New SSH key</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/183929365-3d501c0b-7805-4ec9-be99-454abe1de6aa.png" alt="image"></p>
+
+<p><br></p>
+
+<ul>
+  <li>생성한 공개키를 복사하여 넣어주면 된다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pbcopy &lt; ~/.ssh/sikbook.pub 
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/183929483-25d307e4-51c7-4872-9261-6a90b0f66292.png" alt="image"></p>
+
+<p><br></p>
+
+<ul>
+  <li>설정이 완료되면 아래와같이 설정된 키의 모습이 보인다.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/52439201/183930850-fb4d9a8d-dcfc-4dff-9381-201d5452cc1a.png" alt="image"></p>
+
+<p><br></p>
+
+<h2 id="설정이-제대로-연결되었는지-테스트">설정이 제대로 연결되었는지 테스트</h2>
+
+<ul>
+  <li>ssh -T [ssh config HOST 명]</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh <span class="nt">-T</span> git@github.com-sikbook
+Hi s-seongsik! You<span class="s1">'ve successfully authenticated, but GitHub does not provide shell access.
+</span></code></pre></div></div>
+
+<p>위와 같이 출력되면 정상적으로 연결되었다. 하지만, 서로 다른 계정의 github 저장소로 push를 할 경우 github에 등록된 public key와 쌍이되는 private key가 사용될 수 있도록 설정해 줘야한다.</p>
+
+<p><br></p>
+
+<h2 id="로컬-저장소별로-git-config-파일-수정">로컬 저장소별로 .git config 파일 수정</h2>
+<p>이전에 .ssh config에 Host명과 사용될 비밀키를 등록했다.<br>
+이번에는 비밀키를 사용하기 위해 git config vkdlfdml remote url 도메인을 ssh에 등록된 <code class="language-plaintext highlighter-rouge">HOST</code>값으로 변경해줘야 한다.</p>
+
+<blockquote>
+  <p>git config &gt; remote url값을 ssh config에 등록했던 HOST명으로 작성하지 않으면 Host를 찾을 수 없다거나 Permission 에러가 발생할 수 있다.</p>
+</blockquote>
+
+<h3 id="방법-1-직접-git-명령어를-사용해서-값을-변경">방법 1. 직접 git 명령어를 사용해서 값을 변경</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote add origin git@[ssh config HOS명]:[Github 계정 이름]/[repository명].git
+</code></pre></div></div>
+
+<h3 id="방법-2-로컬-저장소--git--config-파일-수정">방법 2. 로컬 저장소 &gt; .git &gt; config 파일 수정</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi .git/config
+
+<span class="o">[</span>core]
+        repositoryformatversion <span class="o">=</span> 0
+        filemode <span class="o">=</span> <span class="nb">true
+        </span>bare <span class="o">=</span> <span class="nb">false
+        </span>logallrefupdates <span class="o">=</span> <span class="nb">true
+        </span>ignorecase <span class="o">=</span> <span class="nb">true
+        </span>precomposeunicode <span class="o">=</span> <span class="nb">true</span>
+<span class="o">[</span>remote <span class="s2">"origin"</span><span class="o">]</span>
+        url <span class="o">=</span> git@[ssh config HOS명]:[Github 계정 이름]/[repository명].git
+        fetch <span class="o">=</span> +refs/heads/<span class="k">*</span>:refs/remotes/origin/<span class="k">*</span>
+</code></pre></div></div>
+
+<h3 id="확인">확인</h3>
+
+<p>로컬 저장소 .git &gt; config에서 remote url을 수정했다면 아래와 같이 리모트가 잘 수정되었는지 확인하면 끝이다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote <span class="nt">-v</span>
+origin  git@github-sikbook:[Github 계정 이름]/[repository명].git <span class="o">(</span>fetch<span class="o">)</span>
+origin  git@github-sikbook:[Github 계정 이름]/[repository명].git <span class="o">(</span>push<span class="o">)</span>
+</code></pre></div></div>
+
 
     </div>
 
@@ -898,10 +1181,10 @@ function googleTranslateElementInit() {
 <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/webpack/2021/12/17/Webpack-05.html" title="">[Webpack] plugin</a></li>
-<li><a class="post-link" href="/webpack/2021/12/14/Webpack-02.html" title="">[Webpack] entry, output</a></li>
-<li><a class="post-link" href="/typescirpt/2022/05/17/typescript-02.html" title="">[TypeScript] 인터페이스 이해하기</a></li>
-<li><a class="post-link" href="/typescirpt/2022/07/05/typescript-03.html" title="">[TypeScript] 변수와 함수 타입 정의</a></li>
+        <li><a class="post-link" href="/git/2021/12/12/git-04.html" title="">[Git] Git 되돌리기(undo)</a></li>
+<li><a class="post-link" href="/javascript/2022/01/02/javascript-04.html" title="">[ECMAScript6] let, const 키워드</a></li>
+<li><a class="post-link" href="/web/2021/10/21/web-cors.html" title="">[Web] CORS란 무엇이고, REST API에 어떻게 사용되는가?</a></li>
+<li><a class="post-link" href="/javascript/2022/02/07/javascript-05.html" title="">[Javascript]] this는 어떻게 동작할까?</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>
