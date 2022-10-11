@@ -1,21 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-10T23:29:50+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[Vue3.js] 새로운 기능 파악하기(미완)</title><link href="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html" rel="alternate" type="text/html" title="[Vue3.js] 새로운 기능 파악하기(미완)" /><published>2022-10-09T00:00:00+09:00</published><updated>2022-10-09T00:00:00+09:00</updated><id>http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01</id><content type="html" xml:base="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"><![CDATA[<h2 id="시작으로">시작으로</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-11T23:26:02+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[Vue3.js] 새로운 기능 파악하기(미완)</title><link href="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html" rel="alternate" type="text/html" title="[Vue3.js] 새로운 기능 파악하기(미완)" /><published>2022-10-09T00:00:00+09:00</published><updated>2022-10-09T00:00:00+09:00</updated><id>http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01</id><content type="html" xml:base="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"><![CDATA[<h2 id="시작으로">시작으로</h2>
 
 <p>이직한 회사에서 사용하는 웹 기술 스택이 Vue3이다. 전 회사에서 Vue2를 사용해봤지만 스터디할 시간이 부족하여 실무하면서 그때그때 찾아보면서 스터디를 했다. 
-그래도 Vue3가 나온 이유의 대해서 정확하게 알지 못하기 때문에 컨셉, 새로운 기능, 주의해야할 점들을 정리해보려고 한다. 공식문서에 가이드를 보고 리스트업을 시작했다.</p>
+그래도 Vue3가 나온 이유의 대해서 정확하게 알지 못하기 때문에 컨셉, 새로운 기능, 주의해야할 점들을 정리해보려고 한다. 공식문서에 가이드를 보고 리스트업을 시작했다.
+모든 기능을 다루기 보다 현업에서 사용하면서 정리하고 싶었던 내용을 중심으로 시작하려고 한다.</p>
 
-<h2 id="vue3의-새로운-기능">Vue3의 새로운 기능</h2>
+<h2 id="vue2의-문제점-개선">Vue2의 문제점 개선</h2>
 
-<h3 id="composition-api">Composition API</h3>
+<p>기존 Vue2의 문제점이라고 하면 크게 <code class="language-plaintext highlighter-rouge">두 가지</code>로 나눌 수 있다.</p>
 
-<h3 id="teleport">Teleport</h3>
+<h3 id="컴포넌트-코드-재사용성">컴포넌트 코드 재사용성</h3>
+<p>요즘 프론트엔드 프레임워크들은 모두 컴포넌트 기반의 UI 개발 방식을 추구한다. 그 이유는 컴포넌트 방식으로 개발하면 코드를 재사용할 수 있고 디버깅도 수월하게 할 수 있기 때문이다.
+이전 버전의 Vue는 <code class="language-plaintext highlighter-rouge">믹스인(Mixins)</code>, <code class="language-plaintext highlighter-rouge">슬록(slots)</code>, 하<code class="language-plaintext highlighter-rouge">이 오더 컴포넌트(High Order Components)</code> 3가지 방식을 통해 컴포넌트 코드를 재사용할 수 있었다. 
+보통 믹스인을 많이 사용했었는데, 프로젝트 몸집이 커지고 다중으로 상속하게되면 컴포넌트 관리가 어려워졌다. 또한, 믹스인은 컨벤션이 굉장히 중요한 문법이다. 그리고 매개변수를 믹스인을 통해 전달할 수 없기 때문에 코드의 유연성이 떨어졌다.
+이번 Vue3의 <code class="language-plaintext highlighter-rouge">컴포지션 API</code>를 사용하게 되면 인스턴스의 특정 기능 단위로 모듈화된 로직을 여러 컴포넌트에서 재사용할 수 있다. 대규모 프로젝트에서 로직의 유연성을 높여준다.</p>
 
-<h3 id="fragments">Fragments</h3>
+<h3 id="타입스크립트-지원">타입스크립트 지원</h3>
+<p>Vue2로 개발을 시작 할 당시, 타입스크립트를 같이 사용하는 것을 권장하지 않았었다. 그 이유는 완벽하게 호환되지 않았다. 그 이유는 Vue.js가 기존의 옵션 API를 중심으로 객체 구조 방식을 사용하기 때문에 타입스크립트를 온전히 사용하기에 한계가 있었다. 타입스크립트는 타입을 명시적으로 선언하지 않아도 추론이 가능해야 하는데 객체 구조 특성상 개발자가 일일이 타입을 정의해 줘야 하기 때문에 개발하는데 어려운 상황이 많았다. 기본적으로 타입스크립트는 객체 구조보다 함수 구조에서 더 많은 이점을 가져올 수 있다.
+이번 Vue3가 새롭게 등장하면서 적극적으로 타입스크립트를 지원하기 위해 코드베이스를 타입스크립트로 작성했다고 한다. Vue3은 컴포지션 API와 함께 타입스크립트를 사용하기 위해서 컴포지션 API 내부의 <code class="language-plaintext highlighter-rouge">setup()</code> 함수에서 자동으로 타입을 추론하기 때문에 사용하기 훨씬 수월해졌다.</p>
 
-<h3 id="emits-컴포넌트-옵션">Emits 컴포넌트 옵션</h3>
+<h2 id="vue3의-핵심-composition-api">Vue3의 핵심 Composition API</h2>
+<p>기존의 vue에서도 컴포넌트를 생성하고 재사용이 가능했었다. 하지만, 위의 문제처럼 대규모 프로젝트에서 수 백, 수 천개의 컴포넌트를 생각하면 충분하지 않았다. 이렇듯 대규모 어플리케이션에서는 <code class="language-plaintext highlighter-rouge">코드의 재사용성</code>이 정말 정말 정말 중요하다!
+우선 Composition API 작업을 시작하려면, 실제로 사용할 수 있는 <code class="language-plaintext highlighter-rouge">장소</code>가 필요하다. 그게 Vue 컴포넌트에서는 이 위치를 <code class="language-plaintext highlighter-rouge">setup</code>이라고 부른다.</p>
 
-<h3 id="커스텀-렌더들을-생성하기-위한-vueruntime-core의-createrenderer-api">커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer API</h3>
+<h3 id="setup-컴포넌트-옵션">setup 컴포넌트 옵션</h3>
+<p>새로운 <code class="language-plaintext highlighter-rouge">setup</code> 컴포넌트 옵션은 컴포넌트가 생성되기 전에, <code class="language-plaintext highlighter-rouge">props</code>가 한번 <code class="language-plaintext highlighter-rouge">resolved</code>될 때 실행된다. 그리고 composition API의 진입점 역할을 한다.
+<code class="language-plaintext highlighter-rouge">setup</code>이 실행될 때, 컴포넌트 인스턴스가 아직 생성되지않아 setup 옵션 내에 this가 존재하지 않는다. 즉, <code class="language-plaintext highlighter-rouge">props</code>를 제외하고, 컴포넌트 내 다른 속성에 접근할 수 없다.( <code class="language-plaintext highlighter-rouge">local state</code>, <code class="language-plaintext highlighter-rouge">computed properties</code> 또는 <code class="language-plaintext highlighter-rouge">methods</code>.)</p>
 
-<h3 id="vue3의-sfcsingle-file-components-기능">Vue3의 SFC(Single-File Components) 기능</h3>
+<h3 id="반응형-변수-ref">반응형 변수 ref</h3>
+<p>Vue 3.0에서는 다음과 같이 <code class="language-plaintext highlighter-rouge">ref</code> 펑션을 사용하여 어디서나 변수를 반응성있도록 생성할 수 있다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import { ref } from 'vue'
+
+const counter = ref(0)
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ref</code>는 전달인자를 받고 반응형 변수의 값에 접근하거나 값을 변경할 수 있는 <code class="language-plaintext highlighter-rouge">value</code> 속성을 가진 객체를 반환한다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import { ref } from 'vue'
+
+const counter = ref(0)
+
+console.log(counter) // { value: 0 }
+console.log(counter.value) // 0
+
+counter.value++
+console.log(counter.value) // 1
+</code></pre></div></div>
+
+<p>객체 안에 값을 감싸는 것은 불필요할 수 있지만, JavaScript 에서 다른 데이터 타입에 걸쳐 동작을 통일시켜야 한다. JavaScript에서는 <code class="language-plaintext highlighter-rouge">Number</code> 나 <code class="language-plaintext highlighter-rouge">String</code> 과 같은 원시 타입(primitive types)은 참조에 의한 전달(pass by reference)이 아니라 <code class="language-plaintext highlighter-rouge">값에 의한 전달(pass by value)</code>이기 때문이다.</p>
+
+<p>모든 값을 감싸는 래퍼 객체(wrapper object)를 가지고 있으면 어딘가에서 반응성을 잃어버릴 염려없이 전체 앱에서 안전하게 전달할 수 있다.</p>
+
+<p>정리해서, <code class="language-plaintext highlighter-rouge">ref</code> 펑션은 값에 <code class="language-plaintext highlighter-rouge">반응형 참조</code>를 만든다.</p>
 
 <h2 id="참고">참고</h2>
 
