@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-14T23:58:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[Vue3.js] 새로운 기능 파악하기(미완)</title><link href="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html" rel="alternate" type="text/html" title="[Vue3.js] 새로운 기능 파악하기(미완)" /><published>2022-10-09T00:00:00+09:00</published><updated>2022-10-09T00:00:00+09:00</updated><id>http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01</id><content type="html" xml:base="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"><![CDATA[<h2 id="시작으로">시작으로</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-31T14:48:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">IT 데이터베이스</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">[Vue3.js] 새로운 기능 파악하기</title><link href="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html" rel="alternate" type="text/html" title="[Vue3.js] 새로운 기능 파악하기" /><published>2022-10-09T00:00:00+09:00</published><updated>2022-10-09T00:00:00+09:00</updated><id>http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01</id><content type="html" xml:base="http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"><![CDATA[<h2 id="시작으로">시작으로</h2>
 
 <p>이직한 회사에서 사용하는 웹 기술 스택이 Vue3이다. 전 회사에서 Vue2를 사용해봤지만 스터디할 시간이 부족하여 실무하면서 그때그때 찾아보면서 스터디를 했다. 
 그래도 Vue3가 나온 이유의 대해서 정확하게 알지 못하기 때문에 컨셉, 새로운 기능, 주의해야할 점들을 정리해보려고 한다. 공식문서에 가이드를 보고 리스트업을 시작했다.
@@ -51,7 +51,105 @@ console.log(counter.value) // 1
 
 <p>모든 값을 감싸는 래퍼 객체(wrapper object)를 가지고 있으면 어딘가에서 반응성을 잃어버릴 염려없이 전체 앱에서 안전하게 전달할 수 있다.</p>
 
-<p>정리해서, <code class="language-plaintext highlighter-rouge">ref</code> 펑션은 값에 <code class="language-plaintext highlighter-rouge">반응형 참조</code>를 만든다.</p>]]></content><author><name>GitHub User</name></author><category term="Vue.js" /><category term="Vue3.js" /><category term="Webpack" /><category term="Babel" /><category term="Node.js" /><category term="Javascript" /><summary type="html"><![CDATA[시작으로]]></summary></entry><entry><title type="html">[git] OS별 CRLF 새줄 문자 차이 발생 및 해결</title><link href="http://localhost:4000/git/2022/08/16/git-12.html" rel="alternate" type="text/html" title="[git] OS별 CRLF 새줄 문자 차이 발생 및 해결" /><published>2022-08-16T00:00:00+09:00</published><updated>2022-08-16T00:00:00+09:00</updated><id>http://localhost:4000/git/2022/08/16/git-12</id><content type="html" xml:base="http://localhost:4000/git/2022/08/16/git-12.html"><![CDATA[<h2 id="문제-발생">문제 발생</h2>
+<p>정리해서, <code class="language-plaintext highlighter-rouge">ref</code> 펑션은 값에 <code class="language-plaintext highlighter-rouge">반응형 참조</code>를 만든다.</p>
+
+<h3 id="setup안에-라이프사이클-훅-등록하기">setup안에 라이프사이클 훅 등록하기</h3>
+<p>기존의 option API와 비교하여 Composition API를 완벽하게 만들기 위해서는 setup안에 라이프사이클 훅을 등록하는 방법이 필요하다.
+기존의 훅과 동일한 기능을 갖기만 접두사 <code class="language-plaintext highlighter-rouge">on</code>이 붙는다.</p>
+
+<blockquote>
+  <p>mounted =&gt; onMounted</p>
+</blockquote>
+
+<p>해당 라이프사이클 훅은 컴포넌트에 의해 훅이 호출될 때 실행될 콜백을 받는다.</p>
+
+<p>vue2의 mounted와 동일하게 인스턴트가 마운트된 후에 호출되는 훅이다. 달리 말해 가상 DOM이 실제 DOM에 부착되고 난 이후에 실행되는 펑션이다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// src/components/UserRepositories.vue `setup` function
+import { fetchUserRepositories } from '@/api/repositories'
+import { ref, onMounted } from 'vue'
+
+// 컴포넌트 내부
+setup (props) {
+  const repositories = ref([])
+  const getUserRepositories = async () =&gt; {
+    repositories.value = await fetchUserRepositories(props.user)
+  }
+
+  onMounted(getUserRepositories) // `mounted`에서 `getUserRepositories` 호출
+
+  return {
+    repositories,
+    getUserRepositories
+  }
+}
+</code></pre></div></div>
+
+<p>해당 컴포넌트가 실행될 때 onMounted 훅을 호출한다.</p>
+
+<p><br /></p>
+
+<h2 id="composition-api의-더-쉬운-표현-script-setup">Composition API의 더 쉬운 표현, &lt;script setup&gt;</h2>
+
+<blockquote>
+  <p>SFC (single file Component, 싱글 파일 컴포넌트)는 한 파일이 하나의 요소를 정의하는 방식의 컴포넌트이다. 일반적으로 파일에 HTML, 스타일 태그 및 스크립트 태그가 모두 들어있는 파일과 유사하다.
+SFC와 Composition API를 모두 사용하는 경우 권장되는 구문이다. 일반적인 &lt;script&gt; 보다 많은 이점을 제공한다.</p>
+</blockquote>
+
+<ul>
+  <li>더 적은 보일러플레이트로 간결한 코드
+    <blockquote>
+      <p>보일러플레이트(boilerplate)란 변경 없이 계속해서 재사용할 수 있는 코드를 말한다.</p>
+    </blockquote>
+  </li>
+  <li>순수 타입스크립트를 사용하여 props and emitted event 선언 가능</li>
+  <li>더 나은 런타임 성능
+    <blockquote>
+      <p>템플릿이 중간 프록시 없이 동일한 scope의 렌더링 함수로 컴파일 됨.</p>
+    </blockquote>
+  </li>
+  <li>더 나은 IDE 유형 추론 가능</li>
+</ul>
+
+<p>기본적인 구성요소는 다음과 같다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div&gt;</span> hello world<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lang=</span><span class="s">"ts"</span><span class="nt">&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">여기는 타입스크립트를 작성하는 스크립트</span><span class="dl">'</span><span class="p">)</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lang=</span><span class="s">"setup"</span><span class="nt">&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">스크립트 setup</span><span class="dl">'</span><span class="p">)</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">setup</code>으로 선언된 <code class="language-plaintext highlighter-rouge">script</code>안에는 컴포넌트 안 setup() 함수로 컴파일 된다. 즉, 컴포넌트를 처음 가져올 때 한 번만 실행되는 setup() 함수와 달리 <code class="language-plaintext highlighter-rouge">&lt;script setup&gt;</code> 안 코드는 컴포넌트가 실행될 때마다 해당 코드가 실행된다.</p>
+
+<h3 id="최상위-바인딩은-템플릿에서-직접-사용-가능하다">최상위 바인딩은 템플릿에서 직접 사용 가능하다.</h3>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="err">@</span><span class="na">click=</span><span class="s">"onClickEvent"</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div&gt;</span> <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lan=</span><span class="s">"setup"</span><span class="nt">&gt;</span>
+  <span class="k">import</span> <span class="p">{</span> <span class="nx">anOterFuntion</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">~/util</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">seongsik</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">onClickEvent</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;script setup&gt;</code>안 최상위 바인딩은 템플릿에서 정의된 이름 그대로 사용할 수 있다.</li>
+</ul>
+
+<p>이처럼 SFC하나로 모두 정의(impert, composition API, 타입스크립트, CSS) 할 수 있는 것이 가장 큰 장점인 것 같다. 다음에는 SFC의 setup 구문을 더 자세히 다뤄보도록 하자</p>]]></content><author><name>GitHub User</name></author><category term="Vue.js" /><category term="Vue3.js" /><category term="Webpack" /><category term="Babel" /><category term="Node.js" /><category term="Javascript" /><summary type="html"><![CDATA[시작으로]]></summary></entry><entry><title type="html">[git] OS별 CRLF 새줄 문자 차이 발생 및 해결</title><link href="http://localhost:4000/git/2022/08/16/git-12.html" rel="alternate" type="text/html" title="[git] OS별 CRLF 새줄 문자 차이 발생 및 해결" /><published>2022-08-16T00:00:00+09:00</published><updated>2022-08-16T00:00:00+09:00</updated><id>http://localhost:4000/git/2022/08/16/git-12</id><content type="html" xml:base="http://localhost:4000/git/2022/08/16/git-12.html"><![CDATA[<h2 id="문제-발생">문제 발생</h2>
 <p>회사 PC는 윈도우를 사용하고 있으며 도커 환경(linux)에서 작업을 진행하고 있다. 개인노트북은 M1 맥북으로 재택이나 주말(심심할때)에 작업을 진행하고 있다.
 근데, winodws &gt; docker 컨테이너 환경으로 들어가면 변경된게 없는데 모든 소스코드가 변경된것 처럼 발생한다.</p>
 

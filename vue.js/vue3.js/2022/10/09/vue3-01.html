@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>[Vue3.js] 새로운 기능 파악하기(미완) | IT 데이터베이스</title>
+<title>[Vue3.js] 새로운 기능 파악하기 | IT 데이터베이스</title>
 <meta name="generator" content="Jekyll v4.2.2">
-<meta property="og:title" content="[Vue3.js] 새로운 기능 파악하기(미완)">
+<meta property="og:title" content="[Vue3.js] 새로운 기능 파악하기">
 <meta name="author" content="GitHub User">
 <meta property="og:locale" content="en_US">
 <meta name="description" content="시작으로">
@@ -20,9 +20,9 @@
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2022-10-09T00:00:00+09:00">
 <meta name="twitter:card" content="summary">
-<meta property="twitter:title" content="[Vue3.js] 새로운 기능 파악하기(미완)">
+<meta property="twitter:title" content="[Vue3.js] 새로운 기능 파악하기">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-10-09T00:00:00+09:00","datePublished":"2022-10-09T00:00:00+09:00","description":"시작으로","headline":"[Vue3.js] 새로운 기능 파악하기(미완)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"},"url":"http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2022-10-09T00:00:00+09:00","datePublished":"2022-10-09T00:00:00+09:00","description":"시작으로","headline":"[Vue3.js] 새로운 기능 파악하기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"},"url":"http://localhost:4000/vue.js/vue3.js/2022/10/09/vue3-01.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="shortcut icon" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -660,7 +660,7 @@ function googleTranslateElementInit() {
     <div class="wrapper">
       <div class="page-banner-inner">
 <header class="post-header">
-  <h1 class="post-title p-name" itemprop="name headline">[Vue3.js] 새로운 기능 파악하기(미완)</h1>
+  <h1 class="post-title p-name" itemprop="name headline">[Vue3.js] 새로운 기능 파악하기</h1>
   <h2 class="post-subtitle"></h2>
 
   <p class="post-meta">
@@ -701,7 +701,7 @@ function googleTranslateElementInit() {
 
 
 
-    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
   </p>
 <div class="post-tags">
 <a class="post-tag" href="/tags.html#Webpack">#Webpack</a><a class="post-tag" href="/tags.html#Babel">#Babel</a><a class="post-tag" href="/tags.html#Node.js">#Node.js</a><a class="post-tag" href="/tags.html#Javascript">#Javascript</a>
@@ -934,6 +934,104 @@ console.log(counter.value) // 1
 
 <p>정리해서, <code class="language-plaintext highlighter-rouge">ref</code> 펑션은 값에 <code class="language-plaintext highlighter-rouge">반응형 참조</code>를 만든다.</p>
 
+<h3 id="setup안에-라이프사이클-훅-등록하기">setup안에 라이프사이클 훅 등록하기</h3>
+<p>기존의 option API와 비교하여 Composition API를 완벽하게 만들기 위해서는 setup안에 라이프사이클 훅을 등록하는 방법이 필요하다.
+기존의 훅과 동일한 기능을 갖기만 접두사 <code class="language-plaintext highlighter-rouge">on</code>이 붙는다.</p>
+
+<blockquote>
+  <p>mounted =&gt; onMounted</p>
+</blockquote>
+
+<p>해당 라이프사이클 훅은 컴포넌트에 의해 훅이 호출될 때 실행될 콜백을 받는다.</p>
+
+<p>vue2의 mounted와 동일하게 인스턴트가 마운트된 후에 호출되는 훅이다. 달리 말해 가상 DOM이 실제 DOM에 부착되고 난 이후에 실행되는 펑션이다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// src/components/UserRepositories.vue `setup` function
+import { fetchUserRepositories } from '@/api/repositories'
+import { ref, onMounted } from 'vue'
+
+// 컴포넌트 내부
+setup (props) {
+  const repositories = ref([])
+  const getUserRepositories = async () =&gt; {
+    repositories.value = await fetchUserRepositories(props.user)
+  }
+
+  onMounted(getUserRepositories) // `mounted`에서 `getUserRepositories` 호출
+
+  return {
+    repositories,
+    getUserRepositories
+  }
+}
+</code></pre></div></div>
+
+<p>해당 컴포넌트가 실행될 때 onMounted 훅을 호출한다.</p>
+
+<p><br></p>
+
+<h2 id="composition-api의-더-쉬운-표현-script-setup">Composition API의 더 쉬운 표현, &lt;script setup&gt;</h2>
+
+<blockquote>
+  <p>SFC (single file Component, 싱글 파일 컴포넌트)는 한 파일이 하나의 요소를 정의하는 방식의 컴포넌트이다. 일반적으로 파일에 HTML, 스타일 태그 및 스크립트 태그가 모두 들어있는 파일과 유사하다.
+SFC와 Composition API를 모두 사용하는 경우 권장되는 구문이다. 일반적인 &lt;script&gt; 보다 많은 이점을 제공한다.</p>
+</blockquote>
+
+<ul>
+  <li>더 적은 보일러플레이트로 간결한 코드
+    <blockquote>
+      <p>보일러플레이트(boilerplate)란 변경 없이 계속해서 재사용할 수 있는 코드를 말한다.</p>
+    </blockquote>
+  </li>
+  <li>순수 타입스크립트를 사용하여 props and emitted event 선언 가능</li>
+  <li>더 나은 런타임 성능
+    <blockquote>
+      <p>템플릿이 중간 프록시 없이 동일한 scope의 렌더링 함수로 컴파일 됨.</p>
+    </blockquote>
+  </li>
+  <li>더 나은 IDE 유형 추론 가능</li>
+</ul>
+
+<p>기본적인 구성요소는 다음과 같다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div&gt;</span> hello world<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lang=</span><span class="s">"ts"</span><span class="nt">&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">여기는 타입스크립트를 작성하는 스크립트</span><span class="dl">'</span><span class="p">)</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lang=</span><span class="s">"setup"</span><span class="nt">&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">스크립트 setup</span><span class="dl">'</span><span class="p">)</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">setup</code>으로 선언된 <code class="language-plaintext highlighter-rouge">script</code>안에는 컴포넌트 안 setup() 함수로 컴파일 된다. 즉, 컴포넌트를 처음 가져올 때 한 번만 실행되는 setup() 함수와 달리 <code class="language-plaintext highlighter-rouge">&lt;script setup&gt;</code> 안 코드는 컴포넌트가 실행될 때마다 해당 코드가 실행된다.</p>
+
+<h3 id="최상위-바인딩은-템플릿에서-직접-사용-가능하다">최상위 바인딩은 템플릿에서 직접 사용 가능하다.</h3>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="err">@</span><span class="na">click=</span><span class="s">"onClickEvent"</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div&gt;</span> <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lan=</span><span class="s">"setup"</span><span class="nt">&gt;</span>
+  <span class="k">import</span> <span class="p">{</span> <span class="nx">anOterFuntion</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">~/util</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">seongsik</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">onClickEvent</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">&lt;script setup&gt;</code>안 최상위 바인딩은 템플릿에서 정의된 이름 그대로 사용할 수 있다.</li>
+</ul>
+
+<p>이처럼 SFC하나로 모두 정의(impert, composition API, 타입스크립트, CSS) 할 수 있는 것이 가장 큰 장점인 것 같다. 다음에는 SFC의 setup 구문을 더 자세히 다뤄보도록 하자</p>
 
 
     </div>
@@ -945,10 +1043,10 @@ console.log(counter.value) // 1
 <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/javascript/2022/07/26/javascript-15.html" title="">[Javascript] 화살표 함수의 this 바인딩</a></li>
-<li><a class="post-link" href="/git/2021/12/12/git-04.html" title="">[Git] Git 되돌리기(undo)</a></li>
-<li><a class="post-link" href="/react/2022/04/19/react-01.html" title="">[React] JSX(JavaScript XML)란?</a></li>
-<li><a class="post-link" href="/git/2022/08/10/git-11.html" title="">[git] SSH로 여러 개의 Gitgub 계정 사용하기</a></li>
+        <li><a class="post-link" href="/eslint/2022/01/05/eslint-01.html" title="">[ESLint] ESLint 시작하기</a></li>
+<li><a class="post-link" href="/vue.js/vue3.js/2022/10/09/vue3-01.html" title="">[Vue3.js] 새로운 기능 파악하기</a></li>
+<li><a class="post-link" href="/node.js/2022/02/09/Node.js-03.html" title="">[Node.js] Express API 서버 구축 - 설치 및 실행</a></li>
+<li><a class="post-link" href="/git/2022/06/26/git-10.html" title="">[Git] git flow 전략 파악하기</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>
